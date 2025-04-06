@@ -1,0 +1,151 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background-color: #fff;
+    color: #333;
+  }
+/* Styling for the heading  */
+  .page-header{
+    padding: 40px 20px 10px;
+  }
+
+  .page-header h1{
+    font-size: 2rem;
+    margin: 0;
+    font-weight: 600;
+    color: #333;
+    border-bottom: 2px solid #007bff;
+    display: inline-block;
+    padding-bottom: 10px;
+  }
+
+  .carousel-item img {
+    max-height: 400px;
+    object-fit: cover;
+  }
+  
+  .carousel-control-prev-icon,
+.carousel-control-next-icon {
+  filter: invert(0%) sepia(100%) saturate(1000%) hue-rotate(400deg); /* Example: red */
+}
+
+
+/* Nav bar styling  */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #f0f0f0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.logo img {
+    max-height: 40px;
+}
+
+.search-bar {
+    flex: 1;
+    margin: 0 20px;
+}
+
+.search-bar input {
+    padding: 8px;
+    width: 500px;
+}
+
+.search-bar button {
+    padding: 8px 12px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.nav-links a {
+    margin-right: 20px;
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+}
+
+/* Product styling  */
+.product-list{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 40px;
+ } 
+/* Background */
+.product-card{
+    height: 100%;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 15px;
+    text-align: center;
+    background-color: #fafafa;
+    transition: box-shadow 0.3s ease;
+}
+/* Hover effect for the products */
+.product-card:hover {
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  }
+  
+  .product-card img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 6px;
+    margin-bottom: 10px;
+  }
+  
+  .product-card h3 {
+    margin: 15px 0 10px;
+  }
+  
+  .product-card p {
+    font-size: 18px;
+    color: #007bff;
+  }
+  
+  .product-card button {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 14px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-top: auto;
+  }
+  /* Hover effect for the cart button  */
+  .product-card button:hover {
+    background-color: #0056b3;
+  }
+
+  .filter-box{
+        position: relative;
+        background: #FFF;
+        border: 1px solid #E9E9E9;
+        padding: 12px 10px 12px 10px;
+        margin-bottom: 0;
+        margin-top: -1px;
+  }
+/* Styling for filter and sort bars */
+.filtering{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 20px;
+    padding: 20px 40px 0;
+    flex-wrap: wrap;
+}
+
+.filtering label{
+    font-weight: bold;
+    margin-right: 8px;
+}
+
+.filtering select{
+    padding: 6px 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}

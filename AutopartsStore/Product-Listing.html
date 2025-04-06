@@ -4,10 +4,109 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Products</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" href="/AutopartsStore/css/Style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">    <link rel="stylesheet" href="/AutopartsStore/css/Style.css">
 </head>
 <body>
-    
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="logo">
+            <a href="Home.html"> <img src="logo.png" alt="Store Logo"></a>
+        </div>
+        <div class="search-bar">
+            <input type="text" placeholder="Search...">
+            <button>Search</button>
+        </div>
+        <!-- Add Images later -->
+        <div class="nav-links">
+            <a href="Product-Listing.html">Products</a>
+            <a href="Shopping-Cart.html">Cart</a>
+            <a href="Account.html">Account</a>
+        </div>
+    </nav>
+    <!-- Header for the page  -->
+    <Header class="page-header">
+        <h1>All Products</h1>
+    </Header>
+    <!-- Sort by tab  -->
+    <section class="filtering">
+        <div class="filter">
+            <label for="category">Sort By:</label>
+            <select  id="category">
+                <option value="all">Lowest Price</option>
+                <option value="exhaust"> Highest Price</option>
+                <option value="turbo">Best Ratings</option>
+            </select>
+        </div>
+
+    </section>
+    <!-- Product Listings -->
+    <main class = product-list>
+        <div class="product-card">
+            <a href=""><img  src="images/360_F_89850844_YGSGp8OPRTpJsNyKOuQN1Fsl1zUlQpeo.jpg" alt="Product 1"></a>
+            <h5>Product Name</h5>
+           <h6>Price</h6>
+           <h6>Description</h6>
+            <button>Add To Cart</button>
+        </div>
+        <div class="product-card">
+            <img src="images/360_F_89850844_YGSGp8OPRTpJsNyKOuQN1Fsl1zUlQpeo.jpg" alt="Product 1">
+            <h5>Product Name</h5>
+           <h6>Price</h6>
+           <h6>Description</h6>
+            <button>Add To Cart</button>
+        </div>
+
+        <div class="product-card">
+            <img loading="lazy" src="images/360_F_89850844_YGSGp8OPRTpJsNyKOuQN1Fsl1zUlQpeo.jpg" alt="Product 1">
+            <h5>Product Name</h5>
+           <h6>Price</h6>
+           <h6>Description</h6>
+            <button>Add To Cart</button>
+        </div>
+
+        <div class="product-card">
+            <img src="images/360_F_89850844_YGSGp8OPRTpJsNyKOuQN1Fsl1zUlQpeo.jpg" alt="Product 1">
+            <h5>Product Name</h5>
+           <h6>Price</h6>
+           <h6>Description</h6>
+            <button>Add To Cart</button>
+        </div>
+
+        <div class="product-card">
+            <img src="images/360_F_89850844_YGSGp8OPRTpJsNyKOuQN1Fsl1zUlQpeo.jpg" alt="Product 1">
+            <h5>Product Name</h5>
+           <h6>Price</h6>
+           <h6>Description</h6>
+            <button>Add To Cart</button>
+        </div>
+
+        <div class="product-card">
+            <img src="images/360_F_89850844_YGSGp8OPRTpJsNyKOuQN1Fsl1zUlQpeo.jpg" alt="Product 1">
+            <h5>Product Name</h5>
+           <h6>Price</h6>
+           <h6>Description</h6>
+            <button>Add To Cart</button>
+        </div>
+    </main>
+<!-- Page navigation  -->
+    <nav aria-label="Page navigation example">
+        <ul class="pagination justify-content-center">
+          <!-- <li class="page-item">
+            <a class="page-link" href="#" aria-label="Previous">
+              <span aria-hidden="true">&laquo;</span>
+            </a>
+          </li> -->
+          <li class="page-item"><a class="page-link" href="#">1</a></li>
+          <li class="page-item"><a class="page-link" href="#">2</a></li>
+          <li class="page-item"><a class="page-link" href="#">3</a></li>
+          <li class="page-item">
+            <a class="page-link" href="#" aria-label="Next">
+              <span aria-hidden="true">&raquo;</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <script src="js/main.js"></script>
 </body>
 </html>
