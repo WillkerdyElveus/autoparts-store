@@ -83,11 +83,10 @@ body {
     object-fit: cover;
   }
   
-  .carousel-control-prev-icon,
+.carousel-control-prev-icon,
 .carousel-control-next-icon {
   filter: invert(0%) sepia(100%) saturate(1000%) hue-rotate(400deg); /* Example: red */
 }
-
 
 /* Nav bar styling  */
 .navbar {
@@ -100,7 +99,7 @@ body {
 }
 
 .logo img {
-    max-height: 40px;
+    max-height: 100px;
 }
 
 .search-bar {
@@ -138,6 +137,7 @@ body {
     padding: 40px;
     background-color: var(--bg-color);
  } 
+
 /* Background */
 .product-card{
     height: 100%;
@@ -149,6 +149,7 @@ body {
     color: var(--text-color);
     transition: box-shadow 0.3s ease;
 }
+
 /* Hover effect for the products */
 .product-card:hover {
     box-shadow: 0 4px 12px rgba(0,0,0,0.1);
@@ -181,6 +182,7 @@ body {
     cursor: pointer;
     margin-top: auto;
   }
+
   /* Hover effect for the cart button  */
   .product-card button:hover {
     background-color: #0056b3;
@@ -199,6 +201,7 @@ body {
         margin-bottom: 0;
         margin-top: -1px;
   }
+
 /* Styling for filter and sort bars */
 .filtering{
     display: flex;
@@ -227,7 +230,6 @@ body {
 /* making the page link work with theme toggle  */
 .pagination {
   background-color: var(--bg-color);
-  
 }
 
 ul.pagination {
@@ -306,35 +308,10 @@ ul.pagination {
   color: #aaa;
 }
 
-/* Product details styling  */
-
-.product-card{
-  height: 100%;
-  border: 1px solid #ccc;
-  border-radius: 10px;
-  padding: 15px;
-  text-align: center;
-  background-color: #fafafa;
-  transition: box-shadow 0.3s ease;
-}
-/* Hover effect for the products */
-.product-card:hover {
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+.product-detail-header{
+color: #333;
 }
 
-.product-card img {
-  max-width: 100%;
-  height: auto;
-  border-radius: 6px;
-  margin-bottom: 10px;
-}
-
-.product-card h3 {
-  margin: 15px 0 10px;
-}
-
-.product-card p {
-  font-size: 18px;
-  color: #007bff;
-  color: #676666;
+.breadcrumb{
+padding: 20px;
 }
