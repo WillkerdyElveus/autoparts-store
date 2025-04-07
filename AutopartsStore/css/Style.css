@@ -129,6 +129,12 @@ body {
     font-weight: bold;
 }
 
+.breadcrumb{
+background-color: var(--bg-color);
+color: var(--text-color);
+margin-bottom: 0pt;
+}
+
 /* Product styling  */
 .product-list{
     display: grid;
