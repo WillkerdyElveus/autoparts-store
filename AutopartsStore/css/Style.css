@@ -150,7 +150,7 @@ body {
     border-radius: 5px;
 }
 
-
+/* Footer styling  */
 .footer-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -200,4 +200,36 @@ body {
   margin-top: 2rem;
   font-size: 0.8rem;
   color: #aaa;
+}
+
+/* Product details styling  */
+
+.product-card{
+  height: 100%;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 15px;
+  text-align: center;
+  background-color: #fafafa;
+  transition: box-shadow 0.3s ease;
+}
+/* Hover effect for the products */
+.product-card:hover {
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.product-card img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 6px;
+  margin-bottom: 10px;
+}
+
+.product-card h3 {
+  margin: 15px 0 10px;
+}
+
+.product-card p {
+  font-size: 18px;
+  color: #007bff;
 }
