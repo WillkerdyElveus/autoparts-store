@@ -8,7 +8,11 @@
   --footer-link: #555;
   --footer-link-hover: #237665;
   --card-border: black;
+
+  --account-margin: 0rem;
+  --account-padding: 0rem;
 }
+
 
 
 body {
@@ -60,6 +64,9 @@ body {
     --footer-link: #ccc;
     --footer-link-hover: #237665;
     --card-border: white;
+
+    --account-margin: 0rem;
+    --account-padding: 0rem;
   }
 
 
@@ -315,9 +322,50 @@ ul.pagination {
 }
 
 .product-detail-header{
-color: #333;
+color: var(--text-color);
 }
+
+.container-my-5 {
+background-color: var(--bg-color);
+color: var(--text-color);
+}
+
+.account-container {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  /*border: 1px solid var(--card-border);*/
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+  margin: 0 auto;
+  padding: 1.5rem;
+  width: 100%;
+  max-width: 1200px;
+  
+  
+}
+
+.row {
+  margin-left: 0;
+  margin-right: 0;
+}
+
 
 .breadcrumb{
 padding: 20px;
 }
+
+
+.contact-info {
+  background-color: var(--bg-color); 
+  color: var(--text-color);
+  transition: background-color 0.3s, color 0.3s;
+  /*box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);*/
+  padding: 20px;
+  margin-left: 0px;
+  margin-right: 0px;
+
+  
+
+}
+
+
+
