@@ -1,0 +1,64 @@
+{
+    "Categories": [
+        {
+            "categoryId": 1,
+            "categoryName": "Spoiler",
+            "description": "Aerodynamics at the back of the car"
+        },
+        {
+            "categoryId": 2,
+            "categoryName": "Wheels",
+            "description": "The rims of the car"
+        },
+        {
+            "categoryId": 3,
+            "categoryName": "TurboChargers",
+            "description": "A performance mod for cars"
+        },
+        {
+            "categoryId": 4,
+            "categoryName": "Air intake",
+            "description": "Brings in air directly to the engine"
+        },
+        {
+            "categoryId": 5,
+            "categoryName": "Brake pads",
+            "description": "Pads that help the car slow down"
+        }
+    ],
+    "Products": [
+        {
+            "itemId": 1,
+            "categoryId": 1,
+            "itemName": "GTR-Spoiler",
+            "itemDescription": "",
+            "brand": "GTR",
+            "unitPrice": "$250",
+            "quantity": "10",
+            "make": "Nissan",
+            "image": ""
+        },
+        {
+            "itemId": 2,
+            "categoryId": 4,
+            "itemName": "K&N Intake",
+            "itemDescription": "Pulls in cold air directly to the motor for added performance",
+            "brand": "Performance",
+            "unitPrice": "$484",
+            "quantity": "30",
+            "make": "K&N",
+            "image": ""
+        },
+        {
+            "itemId": 3,
+            "categoryId": 5,
+            "itemName": "Brembo Brakes",
+            "itemDescription": "High Performance Brake pads",
+            "brand": "Brembo",
+            "unitPrice": "$100",
+            "quantity": "20",
+            "make": "All Models",
+            "image": ""
+        }
+    ]
+}
