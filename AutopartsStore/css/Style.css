@@ -338,9 +338,7 @@ color: var(--text-color);
   margin: 0 auto;
   padding: 1.5rem;
   width: 100%;
-  max-width: 1200px;
-  
-  
+  max-width: 1200px;  
 }
 
 .row {
@@ -348,11 +346,9 @@ color: var(--text-color);
   margin-right: 0;
 }
 
-
 .breadcrumb{
 padding: 20px;
 }
-
 
 .contact-info {
   background-color: var(--bg-color); 
@@ -362,9 +358,6 @@ padding: 20px;
   padding: 20px;
   margin-left: 0px;
   margin-right: 0px;
-
-  
-
 }
 
 
