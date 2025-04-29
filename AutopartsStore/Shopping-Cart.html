@@ -1,100 +1,192 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cart</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" href="/AutopartsStore/css/Style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Shopping Cart</title>
+
+  <!-- Font Awesome & Bootstrap 4 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
+
+  <!-- Your Custom Styles -->
+  <link rel="stylesheet" href="/AutopartsStore/css/Style.css">
 </head>
 <body>
 
-    <!-- Theme Toggle -->
-    <input type="checkbox" id="theme-toggle" hidden />
-    <label for="theme-toggle" class="theme-switch" aria-label="Toggle dark mode">
-        <span class="sun">☀️</span>
-        <span class="moon">🌙</span>
-    </label>
-    
-    <!-- Navigation Bar -->
-    <nav class="navbar">
-        <div class="logo">
-          <a href="Home.html"> <img src="images/b9538802-0031-4cf1-9e27-7aed700611a2.png" alt="Store Logo"></a>
-        </div>
-        <div class="search-bar">
-            <input type="text" placeholder="Search...">
-            <button>Search</button>
-        </div>
-        <!-- Add Images later -->
-        <div class="nav-links">
-            <a href="Product-Listing.html">Products</a>
-            <a href="Shopping-Cart.html">Cart</a>
-            <a href="Account.html">Account</a>
-        </div>
-    </nav>
+  <!-- Theme Toggle -->
+  <input type="checkbox" id="theme-toggle" hidden />
+  <label for="theme-toggle" class="theme-switch" aria-label="Toggle dark mode">
+    <span class="sun">☀️</span>
+    <span class="moon">🌙</span>
+  </label>
 
-     <!-- Header for the page  -->
-     <Header class="page-header">
-      <h1>Shopping Cart</h1>
-  </Header>
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="logo">
+      <a href="Home.html">
+        <img src="images/b9538802-0031-4cf1-9e27-7aed700611a2.png" alt="Store Logo">
+      </a>
+    </div>
+    <div class="search-bar">
+      <input type="text" placeholder="Search...">
+      <button>Search</button>
+    </div>
+    <div class="nav-links">
+      <a href="Product-Listing.html">Products</a>
+      <a href="Shopping-Cart.html">Cart</a>
+      <a href="Account.html">Account</a>
+    </div>
+  </nav>
 
-<!-- breadcrumb/ directory  -->
-  <nav aria-label="breadcrumb">
-    <ol class="breadcrumb">
+  <!-- Page Header & Breadcrumb -->
+  <header class="page-header text-center">
+    <h1>Shopping Cart</h1>
+  </header>
+  <nav aria-label="breadcrumb" class="px-4">
+    <ol class="breadcrumb bg-white">
       <li class="breadcrumb-item"><a href="Home.html">Home</a></li>
       <li class="breadcrumb-item active" aria-current="page">Shopping Cart</li>
     </ol>
   </nav>
-  
-    <footer class="site-footer">
-        <div class="footer-container">
-  
-          <!-- Customer Service -->
-          <div class="footer-section">
-            <h3>Customer Service</h3>
-            <ul>
-              <li><a href="#">FAQ</a></li>
-              <li><a href="contact.html">Contact Us</a></li>
-            </ul>
-          </div>
-      
-          <!-- Account Section -->
-          <div class="footer-section">
-            <h3>Your Account</h3>
-            <ul>
-              <li><a href="Account.html">Account information</a></li>
-              <li><a href="Shopping-Cart.html">View Cart</a></li>
-            </ul>
-          </div>
-      
-          <!-- Extra Resources -->
-          <div class="footer-section">
-            <h3>Shop</h3>
-            <ul>
-              <li><a href="#">Shop by Category</a></li>
-              <li><a href="#">Shop by Brand</a></li>
-              <li><a href="#">Discount Items</a></li>
-            </ul>
-          </div>
-      
-          <!-- Social Media -->
-          <div class="footer-section">
-            <h3>Follow Us</h3>
-            <div class="social-icons">
-              <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-              <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-              <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-              <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+
+  <!-- CART CONTENT -->
+  <div class="container my-4">
+    <div class="row">
+      <!-- LEFT: Cart Items -->
+      <div class="col-lg-8">
+        <!-- Cart Items -->
+        <div class="cart-items"></div>
+      </div>
+
+      <!-- RIGHT: Shipping & Summary -->
+      <div class="col-lg-4">
+        <!-- Shipping Options Card -->
+        <div class="card mb-4">
+          <div class="card-body">
+            <h5 class="card-title">Shipping Options</h5>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="shippingMethod" id="shipDelivery" checked>
+              <label class="form-check-label" for="shipDelivery">Deliver to my door</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="shippingMethod" id="shipPickup">
+              <label class="form-check-label" for="shipPickup">Pick up in store</label>
+            </div>
+            <div class="form-group mt-3">
+              <label for="postalCode">Postal Code</label>
+              <div class="input-group">
+                <input type="text" class="form-control" id="postalCode" placeholder="e.g. H2X 1Y4">
+                <div class="input-group-append">
+                  <button class="btn btn-outline-secondary" type="button">Check</button>
+                </div>
+              </div>
             </div>
           </div>
-      
-        </div>
-      
-        <div class="footer-bottom">
-          <p>&copy; 2025 Autoparts Store. All rights reserved.</p>
         </div>
 
+        <!-- Order Summary Card -->
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Order Summary</h5>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item d-flex justify-content-between">
+                <span>Subtotal</span>
+                <span>$0.00</span>
+              </li>
+              <li class="list-group-item d-flex justify-content-between">
+                <span>Shipping</span>
+                <span>$0.00</span>
+              </li>
+              <li class="list-group-item d-flex justify-content-between">
+                <span>Taxes</span>
+                <span>$0.00</span>
+              </li>
+              <li class="list-group-item d-flex justify-content-between font-weight-bold">
+                <span>Total</span>
+                <span>$0.00</span>
+              </li>
+            </ul>
+
+            <!-- Coupon Code -->
+            <div class="form-group mt-3">
+              <label for="couponCode">Coupon Code</label>
+              <div class="input-group">
+                <input type="text" class="form-control" id="couponCode" placeholder="Enter code">
+                <div class="input-group-append">
+                  <button class="btn btn-outline-secondary" type="button">Apply</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Checkout Button -->
+            <a href="checkout.html" class="btn btn-primary btn-block mt-3">
+              Proceed to Checkout
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <!-- Customer Service -->
+      <div class="footer-section">
+        <h3>Customer Service</h3>
+        <ul>
+          <li><a href="#">FAQ</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+      </div>
+      <!-- Account -->
+      <div class="footer-section">
+        <h3>Your Account</h3>
+        <ul>
+          <li><a href="Account.html">Account Info</a></li>
+          <li><a href="Shopping-Cart.html">View Cart</a></li>
+        </ul>
+      </div>
+      <!-- Shop -->
+      <div class="footer-section">
+        <h3>Shop</h3>
+        <ul>
+          <li><a href="#">By Category</a></li>
+          <li><a href="#">By Brand</a></li>
+          <li><a href="#">Deals</a></li>
+        </ul>
+      </div>
+      <!-- Social -->
+      <div class="footer-section">
+        <h3>Follow Us</h3>
+        <div class="social-icons">
+          <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+          <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom text-center">
+      <p>&copy; 2025 Autoparts Store. All rights reserved.</p>
+    </div>
   </footer>
+
+  <!-- Bootstrap JS Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-..." crossorigin="anonymous"></script>
+
+  <!-- Your Cart module: renders into .cart-items -->
+  <script type="module">
+    import { initCart, renderCart } from './js/modules/shoppingCart.js';
+    document.addEventListener('DOMContentLoaded', () => {
+      initCart();
+      renderCart();
+    });
+  </script>
 </body>
 </html>

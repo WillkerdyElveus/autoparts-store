@@ -1,68 +1,83 @@
-import { fetchData } from "./modules/fetchWrapper";
-import { initCart } from "./modules/cart.js";
+// Import utility functions for fetching data and managing the cart
+import { fetchData } from './modules/fetchWrapper.js';
+import { initCart, addToCart } from './modules/shoppingCart.js';
 
+// Arrays to hold the full list of products and the current filtered/sorted view
+let products = [];    // Will store all fetched products
+let filtered = [];    // Will store products after sorting/filtering
 
-document.addEventListener('DOMContentLoaded', initApp);
+// When the DOM is fully loaded, set up the cart link, fetch products, and configure sorting
+document.addEventListener('DOMContentLoaded', () => {
+  initCart();       // Initialize the "Show Cart" link and renderCart()
+  fetchProducts();  // Fetch product data from the API and render on the page
+  setupSort();      // link the "Sort By" dropdown to re-render sorted products
+});
 
+/**
+ * Fetch products from the API and render them.
+ * Uses fetchData wrapper to retrieve JSON, handles errors, and populates `products` & `filtered`.
+ */
 
-
-function initApp() {
-    console.log("Initializing the app...");
-
-    const linkProductsButton = document.querySelector("#link-show-cart");
-    linkProductsButton.addEventListener('click', )
-
-    btnFetchShows.addEventListener('click', fetchshows);
+async function fetchProducts() {
+  try {
+    //TODO: Update this endpoint to your production API when ready
+    products = await fetchData('https://fakestoreapi.com/products');
+    filtered = [...products];      // Copy into filtered for sorting without modifying original
+    renderProducts(filtered);      // Show initial product list
+  } catch (err) {
+    console.error('Error fetching products:', err);
+  }
 }
 
-async function fetchproducts() {
-    console.log("Fetching products...");
-    const uri = "https://api.tvmaze.com/shows";
-    const products = await fetchData(uri);
-    parsheProducts(shows);
+/**
+ * Render a given list of products into the .product-list container.
+ * Clears existing content, then creates a card for each product with an "Add To Cart" button.
+ */
+function renderProducts(list) {
+  const container = document.querySelector('.product-list');
+  container.innerHTML = '';       // Remove old cards
+
+  list.forEach(p => {
+    // Create card element and set its class
+    const card = document.createElement('div');
+    card.className = 'product-card';
+
+    // Populate card inner HTML with product image, title, price, description, and button
+    card.innerHTML = `
+      <img src="${p.image}" alt="${p.title}">
+      <h5>${p.title}</h5>
+      <h6>$${p.price.toFixed(2)}</h6>
+      <p class="text-muted">${p.description.slice(0, 60)}…</p>
+      <button class="btn btn-primary">Add To Cart</button>
+    `;
+
+    // Add click listener to call addToCart() when the button is clicked
+    card.querySelector('button')
+        .addEventListener('click', () => addToCart(p));
+
+    // Append the new card to the container
+    container.appendChild(card);
+  });
 }
 
-async function parsheProducts(products) {
-    // Iterate over the shows and build a dynamic HTML table
-    //1) Select the table placeholder
-    const tblShows = document.getElementsByClassName("product-list");
-    //loop through the list of shows
-    shows.forEach(product => {
+/**
+ * "Sort By" dropdown (id="category").
+ * When changed, sort `filtered` by price or rating, then re-render.
+ */
+function setupSort() {
+  const sortSelect = document.getElementById('category');
 
-        const tr = document.createElement('div',"class = product-card")
-        
-        //Add a td for the show id
-        createNewElement(a, 'a', show.id);
-        //Add a td for the name of the show
-        createNewElement(tr, 'td', show.name);
-        //Add a td for the type of show
-        createNewElement(tr, 'td', show.type);
-        //Add a td for the language of the show
-        createNewElement(tr, 'td', show.language);
-        //Add a td for the genre of the show
-        createNewElement(tr, 'td', show.genres);
-        //Add a td for the status of the show
-        createNewElement(tr, 'td', show.status);
-        createNewElement(tr, 'td', show.premiered);
-        const tdsite = createNewElement(tr,'td', "")
-        const siteLink = createNewElement(tdsite, 'a', "Site")
-        siteLink.href = show.officialSite
-        const tdImage = createNewElement(tr, 'td', "")
-        const siteImg = createNewElement(tdImage, 'img', "");
-        siteImg.src = show.image.medium;
-        siteImg.width = 50;
-        siteImg.height = 50;
-        //Add the new <tr> to the table body
-        tblShows.appendChild(tr);
-    });
-}
-function createNewElement(parent, elemName, content) {
-    const newElem = document.createElement(elemName);
-    newElem.textContent = content;
-    parent.appendChild(newElem);
-    return newElem;
-}
+  sortSelect.addEventListener('change', () => {
+    const val = sortSelect.value;
 
-//for filtering the items
-const categoryFilter = document.getElementById("category");
-const sortSelect = document.getElementById("sort");
+    if (val === 'all') {                    // Sort by lowest price
+      filtered.sort((a, b) => a.price - b.price);
+    } else if (val === 'exhaust') {         // Sort by highest price
+      filtered.sort((a, b) => b.price - a.price);
+    } else if (val === 'turbo') {           // Sort by best rating
+      filtered.sort((a, b) => b.rating.rate - a.rating.rate);
+    }
+
+    renderProducts(filtered);  // Re-render products after sorting
+  });
+}
