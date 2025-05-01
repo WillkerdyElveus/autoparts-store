@@ -1,31 +1,32 @@
 // Import utility functions for fetching data and managing the cart
 import { fetchData } from './modules/fetchWrapper.js';
 import { initCart, addToCart } from './modules/shoppingCart.js';
-
+import { initLeafletMap } from './modules/map.js';
 // Arrays to hold the full list of products and the current filtered/sorted view
 let products = [];    // Will store all fetched products
 let filtered = [];    // Will store products after sorting/filtering
 
 // When the DOM is fully loaded, set up the cart link, fetch products, and configure sorting
 document.addEventListener('DOMContentLoaded', () => {
+  console.log("Bruh");
+  initApp();
   initCart();       // Initialize the "Show Cart" link and renderCart()
-  fetchProducts();  // Fetch product data from the API and render on the page
-  setupSort();      // link the "Sort By" dropdown to re-render sorted products
+  //TODO: fix the followiong later.
+  // fetchProducts();  // Fetch product data from the API and render on the page
+  // setupSort();      // link the "Sort By" dropdown to re-render sorted products
 });
 
-/**
- * Fetch products from the API and render them.
- * Uses fetchData wrapper to retrieve JSON, handles errors, and populates `products` & `filtered`.
- */
-
-async function fetchProducts() {
-  try {
-    //TODO: Update this endpoint to your production API when ready
-    products = await fetchData('https://fakestoreapi.com/products');
-    filtered = [...products];      // Copy into filtered for sorting without modifying original
-    renderProducts(filtered);      // Show initial product list
-  } catch (err) {
-    console.error('Error fetching products:', err);
+function initApp() {
+  console.log("Initializing the app...");
+  // Add a click event handler to the fetch shows button
+  // 1) We need to select the button 
+  // 2) Add the click event handler
+  //Figure out what page the user is viewing 
+  const page = document.querySelector("[data-page]").dataset.page;
+  console.log(page);
+  if(page === "map"){
+    console.log("fflk");
+      initLeafletMap();
   }
 }
 
@@ -81,3 +82,4 @@ function setupSort() {
     renderProducts(filtered);  // Re-render products after sorting
   });
 }
+

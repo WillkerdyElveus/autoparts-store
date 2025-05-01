@@ -1,0 +1,77 @@
+{
+    "categories": [
+      {
+        "id": 1,
+        "name": "Stores",
+        "description": "Buy all your parts here",
+        "markerIcon": "relativePath/image.png"
+      },
+      {
+        "id": 2,
+        "name": "SAAQ",
+        "description": "Come register your car",
+        "markerIcon": "AutopartsStore/markers/gasstation.png"
+      },
+      {
+        "id": 3,
+        "name": "Stores",
+        "description": "Buy all your parts here",
+        "markerIcon": "relativePath/image.png"
+      },
+      {
+        "id": 4,
+        "name": "Stores",
+        "description": "Buy all your parts here",
+        "markerIcon": "relativePath/image.png"
+      },
+      {
+        "id": 5,
+        "name": "Stores",
+        "description": "Buy all your parts here",
+        "markerIcon": "relativePath/image.png"
+      }
+    ],
+    "places": [
+      {
+        "name": "LA SAAQ Decarie",
+        "description": "Societe D'Assurance Automobile du Quebec",
+        "point": {
+          "coordinates": [45.49465110776458, -73.65182016875767]
+        },
+        "categoryId": 2
+      },
+      {
+        "name": "LA SAAQ Henri-Bourassa",
+        "description": "Societe D'Assurance Automobile du Quebec",
+        "point": {
+          "coordinates": [45.54190985613349, -73.6779278413968]
+        },
+        "categoryId": 2
+      },
+      {
+        "name": "LA SAAQ Place Vertu",
+        "description": "Societe D'Assurance Automobile du Quebec",
+        "point": {
+          "coordinates": [45.50382042910485, -73.70791912800694]
+        },
+        "categoryId": 2
+      },
+      {
+        "name": "LA SAAQ Dorval",
+        "description": "Societe D'Assurance Automobile du Quebec",
+        "point": {
+          "coordinates": [45.48077618011251, -73.78540278225769]
+        },
+        "categoryId": 2
+      },
+      {
+        "name": "LA SAAQ Langelier",
+        "description": "Societe D'Assurance Automobile du Quebec",
+        "point": {
+          "coordinates": [45.594867144797014, -73.56786490233286]
+        },
+        "categoryId": 2
+      }
+    ]
+  }
+  
