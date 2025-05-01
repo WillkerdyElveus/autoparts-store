@@ -1,20 +1,40 @@
-export function listingApp(){
-    console.log("Initializing the listings...");
+import { fetchData } from './fetchWrapper.js';
+import { renderProducts } from './main.js'; // Adjust if renderProducts is moved
 
-}
+// Arrays to hold all products and the current filtered list
+export let products = [];
+export let filtered = [];
 
 /**
  * Fetch products from the API and render them.
  * Uses fetchData wrapper to retrieve JSON, handles errors, and populates `products` & `filtered`.
  */
 
-async function fetchProducts() {
-    try {
-      //TODO: Update this endpoint to your production API when ready
-      products = await fetchData('https://fakestoreapi.com/products');
-      filtered = [...products];      // Copy into filtered for sorting without modifying original
-      renderProducts(filtered);      // Show initial product list
-    } catch (err) {
-      console.error('Error fetching products:', err);
-    }
+export async function fetchProducts() {
+  try {
+    products = await fetchData('https://fakestoreapi.com/products');
+    filtered = [...products];
+    renderProducts(filtered);
+  } catch (err) {
+    console.error('Error fetching products:', err);
   }
+}
+
+// Setup sorting behavior
+export function setupSort() {
+  const sortSelect = document.getElementById('category');
+
+  sortSelect.addEventListener('change', () => {
+    const val = sortSelect.value;
+
+    if (val === 'all') {
+      filtered.sort((a, b) => a.price - b.price);
+    } else if (val === 'exhaust') {
+      filtered.sort((a, b) => b.price - a.price);
+    } else if (val === 'turbo') {
+      filtered.sort((a, b) => b.rating.rate - a.rating.rate);
+    }
+
+    renderProducts(filtered);
+  });
+}

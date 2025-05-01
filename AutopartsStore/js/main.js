@@ -1,7 +1,7 @@
 // Import utility functions for fetching data and managing the cart
-import { fetchData } from './modules/fetchWrapper.js';
 import { initCart, addToCart } from './modules/shoppingCart.js';
 import { initLeafletMap } from './modules/map.js';
+import { fetchProducts, setupSort } from "./modules/listing.js";
 // Arrays to hold the full list of products and the current filtered/sorted view
 let products = [];    // Will store all fetched products
 let filtered = [];    // Will store products after sorting/filtering
@@ -11,9 +11,6 @@ document.addEventListener('DOMContentLoaded', () => {
   console.log("Bruh");
   initApp();
   initCart();       // Initialize the "Show Cart" link and renderCart()
-  //TODO: fix the followiong later.
-  // fetchProducts();  // Fetch product data from the API and render on the page
-  // setupSort();      // link the "Sort By" dropdown to re-render sorted products
 });
 
 function initApp() {
@@ -25,8 +22,10 @@ function initApp() {
   const page = document.querySelector("[data-page]").dataset.page;
   console.log(page);
   if(page === "map"){
-    console.log("fflk");
       initLeafletMap();
+  }else if(page === "listing"){
+    fetchProducts();
+    setupSort();
   }
 }
 
@@ -34,7 +33,7 @@ function initApp() {
  * Render a given list of products into the .product-list container.
  * Clears existing content, then creates a card for each product with an "Add To Cart" button.
  */
-function renderProducts(list) {
+export function renderProducts(list) {
   const container = document.querySelector('.product-list');
   container.innerHTML = '';       // Remove old cards
 
