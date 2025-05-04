@@ -1,5 +1,5 @@
 //A modul for implementing an HTTP client using ajax and Fetch API
-export async function fetchData(resourceUri) {
+/*export async function fetchData(resourceUri) {
     try {
         // 1) Intiate the HTTP request message
         const response = await fetch(resourceUri);
@@ -15,6 +15,24 @@ export async function fetchData(resourceUri) {
         return data;
     } catch (error) {
         console.log(error.message);
+    }
+}*/
+export async function fetchData(resourceUri) {
+    try {
+        const response = await fetch(resourceUri);
+        
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        
+        return await response.json();
+    } catch (error) {
+        console.error('Failed to fetch data:', error);
+        // Fallback to local data if available
+        if (resourceUri.includes('places.json')) {
+            return await import('../data/places.json');
+        }
+        throw error; // Re-throw to let calling code handle it
     }
 }
 

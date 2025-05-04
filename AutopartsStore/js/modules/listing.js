@@ -12,11 +12,24 @@ export let filtered = [];
 
 export async function fetchProducts() {
   try {
+    // Try remote API first
     products = await fetchData('https://fakestoreapi.com/products');
+    
+    // Fallback to local data if API fails
+    if (!products || products.length === 0) {
+      const localData = await fetchData('./data/inventory.json');
+      products = localData.Products || [];
+    }
+    
     filtered = [...products];
     renderProducts(filtered);
   } catch (err) {
     console.error('Error fetching products:', err);
+    document.querySelector('.product-list').innerHTML = `
+      <div class="alert alert-danger">
+        Failed to load products. Please try again later.
+      </div>
+    `;
   }
 }
 
