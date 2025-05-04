@@ -2,6 +2,9 @@
 import { initCart, addToCart } from './modules/shoppingCart.js';
 import { initLeafletMap } from './modules/map.js';
 import { fetchProducts, setupSort } from "./modules/listing.js";
+import { setupFormValidation } from "./modules/formValidation.js";
+import { setupSearch } from "./modules/search.js";
+import { loadProductDetails } from "./modules/productDetails.js";
 // Arrays to hold the full list of products and the current filtered/sorted view
 let products = [];    // Will store all fetched products
 let filtered = [];    // Will store products after sorting/filtering
@@ -10,7 +13,30 @@ let filtered = [];    // Will store products after sorting/filtering
 document.addEventListener('DOMContentLoaded', () => {
   console.log("Bruh");
   initApp();
-  initCart();       // Initialize the "Show Cart" link and renderCart()
+  initCart();// Initialize the "Show Cart" link and renderCart()
+  
+  const page = document.querySelector("[data-page]")?.dataset.page;
+  if (!page) return;
+
+  switch(page) {
+    case "map":
+      initLeafletMap();
+      break;
+    case "listing":
+      fetchProducts();
+      setupSort();
+      setupSearch();
+      break;
+    case "account":
+      setupFormValidation();
+      break;
+    case "product":
+      loadProductDetails();
+      break;
+    case "cart":
+      renderCart();
+      break;
+  }
 });
 
 function initApp() {
