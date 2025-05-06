@@ -10,7 +10,7 @@
         "id": 2,
         "name": "SAAQ",
         "description": "Come register your car",
-        "markerIcon": "AutopartsStore/markers/gasstation.png"
+        "markerIcon": "gasstation.png"
       },
       {
         "id": 3,
