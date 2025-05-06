@@ -40,6 +40,10 @@ document.addEventListener('DOMContentLoaded', () => {
       // case "detail":
       //   loadProductDetails();
       //   break;
+      case "search":
+        setupSearch();
+        fetchProducts();
+        break;
   }
 });
 
