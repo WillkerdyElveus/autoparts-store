@@ -1,5 +1,5 @@
-import { addToCart } from './cart.js';
-import { fetchData } from './api.js';
+import { addToCart } from './shoppingCart.js';
+import { fetchData } from './fetchWrapper.js';
 
 let products = [];
 

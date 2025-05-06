@@ -1,10 +1,10 @@
 // Import utility functions for fetching data and managing the cart
-import { initCart, addToCart } from './modules/shoppingCart.js';
 import { initLeafletMap } from './modules/map.js';
+import { initCart, addToCart } from './modules/shoppingCart.js';
 import { fetchProducts, setupSort } from "./modules/listing.js";
 import { setupFormValidation } from "./modules/formValidation.js";
 import { setupSearch } from "./modules/search.js";
-import { loadProductDetails } from "./modules/productDetails.js";
+//import { loadProductDetails } from "./modules/productDetails.js";
 import { loadProducts } from './modules/products.js';
 // Arrays to hold the full list of products and the current filtered/sorted view
 let products = [];    // Will store all fetched products
@@ -48,9 +48,7 @@ function initApp() {
   //Figure out what page the user is viewing 
   const page = document.querySelector("[data-page]").dataset.page;
   console.log(page);
-  if(page === "map"){
-      initLeafletMap();
-  }else if(page === "listing"){
+  if(page === "listing"){
     fetchProducts();
     setupSort();
   }
@@ -84,28 +82,6 @@ export function renderProducts(list) {
 
     // Append the new card to the container
     container.appendChild(card);
-  });
-}
-
-/**
- * "Sort By" dropdown (id="category").
- * When changed, sort `filtered` by price or rating, then re-render.
- */
-function setupSort() {
-  const sortSelect = document.getElementById('category');
-
-  sortSelect.addEventListener('change', () => {
-    const val = sortSelect.value;
-
-    if (val === 'all') {                    // Sort by lowest price
-      filtered.sort((a, b) => a.price - b.price);
-    } else if (val === 'exhaust') {         // Sort by highest price
-      filtered.sort((a, b) => b.price - a.price);
-    } else if (val === 'turbo') {           // Sort by best rating
-      filtered.sort((a, b) => b.rating.rate - a.rating.rate);
-    }
-
-    renderProducts(filtered);  // Re-render products after sorting
   });
 }
 

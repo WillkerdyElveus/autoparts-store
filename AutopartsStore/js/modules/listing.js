@@ -1,5 +1,5 @@
 import { fetchData } from './fetchWrapper.js';
-import { renderProducts } from './main.js'; // Adjust if renderProducts is moved
+import { renderProducts } from './fetchWrapper.js'; // Adjust if renderProducts is moved
 
 // Arrays to hold all products and the current filtered list
 export let products = [];
