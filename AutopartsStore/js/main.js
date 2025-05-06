@@ -4,8 +4,7 @@ import { initCart, addToCart } from './modules/shoppingCart.js';
 import { fetchProducts, setupSort } from "./modules/listing.js";
 import { setupFormValidation } from "./modules/formValidation.js";
 import { setupSearch } from "./modules/search.js";
-//import { loadProductDetails } from "./modules/productDetails.js";
-import { loadProducts } from './modules/products.js';
+import { loadProducts, loadProductDetails  } from './modules/products.js';
 // Arrays to hold the full list of products and the current filtered/sorted view
 let products = [];    // Will store all fetched products
 let filtered = [];    // Will store products after sorting/filtering
@@ -28,15 +27,19 @@ document.addEventListener('DOMContentLoaded', () => {
       setupSort();
       setupSearch();
       break;
+      case "home":
+        fetchProducts();
+        setupSearch();
+      break;
     case "account":
       setupFormValidation();
-      break;
-    case "product":
-      loadProductDetails();
       break;
     case "cart":
       renderCart();
       break;
+      // case "detail":
+      //   loadProductDetails();
+      //   break;
   }
 });
 
