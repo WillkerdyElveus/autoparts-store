@@ -1,7 +1,7 @@
 // search.js
 
-import { filtered, renderProducts } from './listing.js';
-
+import { renderProducts } from './fetchWrapper.js';
+import { filtered } from './listing.js';
 
 export function setupSearch() {
     const searchInput = document.querySelector('.search-bar input');

@@ -42,7 +42,6 @@ document.addEventListener('DOMContentLoaded', () => {
       //   break;
       case "search":
         setupSearch();
-        fetchProducts();
         break;
   }
 });
