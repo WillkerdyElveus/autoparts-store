@@ -21,7 +21,7 @@ export function addToCart(product) {
   // Persist the updated cart
   saveCart();
   // Log the updated cart for debugging
-  console.log('Cart now:', cart);
+  console.log('Current Cart:', cart);
   // Give feedback
   alert(`Added "${product.title}" to cart!`);
 }

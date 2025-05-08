@@ -1,62 +1,21 @@
-import { addToCart } from './shoppingCart.js';
 import { fetchData } from './fetchWrapper.js';
 
-let products = [];
-
-export async function loadProducts(containerSelector, limit = null) {
-  try {
-    products = await fetchData('data/inventory.json');
-    
-    const container = document.querySelector(containerSelector);
-    if (!container) return;
-    
-    let productsToShow = products;
-    if (limit) {
-      productsToShow = products.slice(0, limit);
-    }
-    
-    container.innerHTML = productsToShow.map(product => `
-      <div class="product-card col-md-4 mb-4">
-        <div class="card h-100">
-          <img src="${product.image}" class="card-img-top" alt="${product.title}">
-          <div class="card-body">
-            <h5 class="card-title">${product.title}</h5>
-            <p class="card-text">${product.description.substring(0, 60)}...</p>
-            <div class="d-flex justify-content-between align-items-center">
-              <span class="price">$${product.price.toFixed(2)}</span>
-              <button class="btn btn-primary add-to-cart" data-product-id="${product.id}">
-                Add to Cart
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-    `).join('');
-    
-    // Store products in session for search
-    sessionStorage.setItem('products', JSON.stringify(products));
-  } catch (error) {
-    console.error('Error loading products:', error);
-    document.querySelector(containerSelector).innerHTML = `
-      <div class="alert alert-danger">
-        Failed to load products. Please try again later.
-      </div>
-    `;
-  }
-}
-
 export async function loadProductDetails() {
+  let products = [];  // Initialize products array to store fetched data
+  products = await fetchData('data/inventory.json'); // Fetch product data from JSON file 
+  console.log("Products loaded:", products); // Log the loaded products for debugging
+  
+  console.log("Loading product details...");
+  
   const productId = sessionStorage.getItem('selectedProduct');
   if (!productId) {
-    window.location.href = 'products.html';
+    window.location.href = 'product-listing.html';
     return;
   }
-  
   try {
     if (products.length === 0) {
       products = await fetchData('data/inventory.json');
     }
-    
     const product = products.find(p => p.id == productId);
     if (!product) throw new Error('Product not found');
     

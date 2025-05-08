@@ -1,4 +1,3 @@
-// formValidation.js
 export function setupFormValidation() {
     const form = document.getElementById('registrationForm');
     if (!form) return;
@@ -47,6 +46,7 @@ export function setupFormValidation() {
     return true;
   }
   
+  //TODO Password doesnt work yet
   /*function validateConfirmPassword() {
     const password = document.getElementById('password');
     const confirmPassword = document.getElementById('confirmPassword');
