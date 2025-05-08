@@ -1,6 +1,7 @@
 // search.js
 
-import { filtered, renderProducts } from './listing.js';
+import { filtered} from './listing.js';
+import { renderProducts } from './fetchWrapper.js';
 
 
 export function setupSearch() {
