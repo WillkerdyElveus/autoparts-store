@@ -1,6 +1,7 @@
 // search.js
 
-
+import {filtered} from './modules/listing.js';
+import {renderProducts} from './modules/fetchWrapper.js';
 
 
 
