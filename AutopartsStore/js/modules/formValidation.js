@@ -15,13 +15,25 @@ export function setupFormValidation() {
     document.getElementById('email').addEventListener('blur', validateEmail);
     document.getElementById('password').addEventListener('input', validatePassword);
     document.getElementById('confirmPassword').addEventListener('blur', validateConfirmPassword);
+    document.getElementById('phone').addEventListener(validatePhoneNumber);
   }
   
   function validateForm() {
     return validateEmail() && 
            validatePassword() && 
            validateConfirmPassword() &&
-           validatePostalCode();
+           validatePostalCode() &&
+           validatePhoneNumber();
+  }
+
+  function validatePhoneNumber(){
+    const phoneNumber = document.getElementById('phone');
+    const regExPhone = /^\d{3}-\d{3}-\d{4}$/;
+    if(!regExPhone.test(phone.value)){
+      alert('Enter valid phone number');
+      return false;
+    }
+    return true;
   }
   
   function validateEmail() {
