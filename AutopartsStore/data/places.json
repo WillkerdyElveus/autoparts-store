@@ -2,36 +2,76 @@
     "categories": [
       {
         "id": 1,
-        "name": "Stores",
-        "description": "Buy all your parts here",
-        "markerIcon": "relativePath/image.png"
+        "name": "Gas Stations",
+        "description": "Find the nearest gas station",
+        "markerIcon": "gasstation.png"
       },
       {
         "id": 2,
         "name": "SAAQ",
         "description": "Come register your car",
-        "markerIcon": "gasstation.png"
+        "markerIcon": ""
       },
       {
         "id": 3,
-        "name": "Stores",
+        "name": "Canadian Tire",
         "description": "Buy all your parts here",
-        "markerIcon": "relativePath/image.png"
+        "markerIcon": ""
       },
       {
         "id": 4,
         "name": "Stores",
         "description": "Buy all your parts here",
-        "markerIcon": "relativePath/image.png"
+        "markerIcon": ""
       },
       {
         "id": 5,
         "name": "Stores",
         "description": "Buy all your parts here",
-        "markerIcon": "relativePath/image.png"
+        "markerIcon": ""
       }
     ],
     "places": [
+      {
+        "name": "Petro Canada Poirier",
+        "description": "Gas Station - Petro Canada",
+        "point": {
+          "coordinates": [45.52736635875942, -73.69815578934872]
+        },
+        "categoryId": 1
+      },
+      {
+        "name": "Petro Canada Decarie",
+        "description": "Gas Station - Petro Canada",
+        "point": {
+          "coordinates": [45.49682219092925, -73.6565010358664]
+        },
+        "categoryId": 1
+      },
+      {
+        "name": "Petro Canada Acadie",
+        "description": "Gas Station - Petro Canada",
+        "point": {
+          "coordinates": [45.539337265756906, -73.66588005659816]
+        },
+        "categoryId": 1
+      },
+      {
+        "name": "Petro Canada Jarry",
+        "description": "Gas Station - Petro Canada",
+        "point": {
+          "coordinates": [45.53759437702556, -73.61860213527878]
+        },
+        "categoryId": 1
+      },
+      {
+        "name": "Petro Canada Papineau",
+        "description": "Gas Station - Petro Canada",
+        "point": {
+          "coordinates": [45.55322820631165, -73.61403664894574]
+        },
+        "categoryId": 1
+      },
       {
         "name": "LA SAAQ Decarie",
         "description": "Societe D'Assurance Automobile du Quebec",
@@ -71,6 +111,46 @@
           "coordinates": [45.594867144797014, -73.56786490233286]
         },
         "categoryId": 2
+      },
+      {
+        "name": "Canadian Tire Place Vertu",
+        "description": "Canadian Tire - Buy all your parts here",
+        "point": {
+          "coordinates": [45.50232836147321, -73.70602061157356]
+        },
+        "categoryId": 3
+      },
+      {
+        "name": "Canadian Tire Atwater",
+        "description": "Canadian Tire - Buy all your parts here",
+        "point": {
+          "coordinates": [45.491431464890695, -73.57990672029237]
+        },
+        "categoryId": 3
+      },
+      {
+        "name": "Canadian Tire Mont Royal",
+        "description": "Canadian Tire - Buy all your parts here",
+        "point": {
+          "coordinates": [45.53745230848008, -73.60461033045283]
+        },
+        "categoryId": 3
+      },
+      {
+        "name": "Canadian Tire Sherbrooke",
+        "description": "Canadian Tire - Buy all your parts here",
+        "point": {
+          "coordinates": [45.59836793010044, -73.54496634929733]
+        },
+        "categoryId": 3
+      },
+      {
+        "name": "Canadian Tire Point-Aux-Trembles",
+        "description": "Canadian Tire - Buy all your parts here",
+        "point": {
+          "coordinates": [45.65355474724732, -73.51299073190478]
+        },
+        "categoryId": 3
       }
     ]
   }
