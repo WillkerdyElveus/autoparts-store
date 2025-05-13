@@ -1,3 +1,4 @@
+
 // Cart state in localStorage
 const STORAGE_KEY = 'myStoreCart';
 // Initialize cart from localStorage (if it exists) or start with an empty array
@@ -23,7 +24,11 @@ export function addToCart(product) {
   // Log the updated cart for debugging
   console.log('Current Cart:', cart);
   // Give feedback
-  alert(`Added "${product.title}" to cart!`);
+  const msgEl = document.getElementById('cartFeedbackMessage');
+  msgEl.textContent = `Added "${product.title}" to cart!`;
+  // Show feedback modal
+  const cartModal = new bootstrap.Modal(document.getElementById('cartFeedbackModal'));
+  cartModal.show();
 }
 
 //Render the cart UI

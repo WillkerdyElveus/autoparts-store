@@ -124,6 +124,26 @@
             <p>&copy; 2025 Autoparts Store. All rights reserved.</p>
           </div>
     </footer>
+
+    <!-- Cart Feedback Modal -->
+<div class="modal fade" id="cartFeedbackModal" tabindex="-1" aria-labelledby="cartFeedbackLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="cartFeedbackLabel">Cart Updated</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <!-- This is where we’ll inject our message -->
+        <p id="cartFeedbackMessage">Item Added to Cart successfully</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">OK</button>
+      </div>
+    </div>
+  </div>
+</div>
+
     <!-- Java script links keep at bottom always  -->
     <script type="module" src="js/main.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
