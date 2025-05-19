@@ -5,6 +5,7 @@ import { fetchProducts, setupSort } from "./modules/listing.js";
 import { setupFormValidation } from "./modules/formValidation.js";
 import { setupSearch } from "./modules/search.js";
 import { loadProductDetails  } from './modules/products.js';
+import {initCarousel} from './modules/home.js';
 // Arrays to hold the full list of products and the current filtered/sorted view
 let products = [];    // Will store all fetched products
 let filtered = [];    // Will store products after sorting/filtering
@@ -32,6 +33,7 @@ function initApp() {
       setupSearch();
       break;
       case "home":
+        initCarousel();
         fetchProducts();
         setupSearch();
       break;
