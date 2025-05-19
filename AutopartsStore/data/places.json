@@ -20,15 +20,15 @@
       },
       {
         "id": 4,
-        "name": "Stores",
-        "description": "Buy all your parts here",
-        "markerIcon": ""
+        "name": "Home Depot",
+        "description": "Get all your maintenance parts here",
+        "markerIcon": "homeDepot.png"
       },
       {
         "id": 5,
-        "name": "Stores",
-        "description": "Buy all your parts here",
-        "markerIcon": ""
+        "name": "Garage Auto repair shops",
+        "description": "Get your car fixed here",
+        "markerIcon": "cars.png"
       }
     ],
     "places": [
@@ -151,6 +151,91 @@
           "coordinates": [45.65355474724732, -73.51299073190478]
         },
         "categoryId": 3
+      },
+      {
+        "name": "Home Depot Beaubien",
+        "description":"Home Depot - Get all your maintenace parts here",
+        "point":{
+          "coordinates": [45.533983523128285, -73.60168297040474]
+        },
+        "categoryId": 4
+
+      },
+      {
+        "name": "Home Depot le Corbusier",
+        "description":"Home Depot - Get all your maintenace parts here",
+        "point":{
+          "coordinates": [45.56002516407435, -73.72964630463899]
+        },
+        "categoryId": 4
+
+      },
+      {
+        "name": "Home Depot Renaud-Lapointe",
+        "description":"Home Depot - Get all your maintenace parts here",
+        "point":{
+          "coordinates": [45.61286926238012, -73.59898556843605]
+        },
+        "categoryId": 4
+
+      },
+      {
+        "name": "Home Depot Westmount",
+        "description":"Home Depot - Get all your maintenace parts here",
+        "point":{
+          "coordinates": [45.479675322961775, -73.5949655250211]
+        },
+        "categoryId": 4
+
+      },
+      {
+        "name": "Home Depot Pointe-Claire",
+        "description":"Home Depot - Get all your maintenace parts here",
+        "point":{
+          "coordinates": [45.46366723861324, -73.81985041077365]
+        },
+        "categoryId": 4
+
+      },
+      {
+        "name":"Garage Heinz",
+        "description": "Heinz - come get your car fixed",
+        "point":{
+          "coordinates": [45.472060201350104, -73.60582778345623]
+        },
+        "categoryId": 5
+      },
+      {
+        "name":"Garage P.J.N Auto",
+        "description": "Auto-repair - come get your car fixed",
+        "point":{
+          "coordinates": [45.54424116370525, -73.58351180489367]
+        },
+        "categoryId": 5
+      },
+      {
+        "name":"Garage Auto Atlas",
+        "description": "Auto-repair - come get your car fixed",
+        "point":{
+          "coordinates": [45.46989334240547, -73.81697127293256]
+        },
+        "categoryId": 5
+      },
+      {
+        "name":"Garage Decarie",
+        "description": "Auto-repair - come get your car fixed",
+        "point":{
+          "coordinates": [45.496612113886584, -73.64530989937457]
+        },
+        "categoryId": 5
+      },
+      {
+        "name":"Garage Newman",
+        "description": "Auto-repair - come get your car fixed",
+        "point":{
+          "coordinates": [45.44412541442523, -73.62059066158221]
+        },
+        "categoryId": 5
       }
     ]
   }
