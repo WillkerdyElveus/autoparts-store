@@ -15,6 +15,13 @@ document.addEventListener('DOMContentLoaded', () => {
   initApp();
   initCart();// Initialize the "Show Cart" link and renderCart()
   
+   const toggle = document.getElementById('theme-toggle');
+
+  // On change, add/remove the 'dark-mode' class on <html>
+  toggle.addEventListener('change', () => {
+    document.documentElement.classList.toggle('dark-mode', toggle.checked);
+  });
+
 });
 
 function initApp() {
