@@ -37,9 +37,9 @@ export function renderProducts(list) {
       <a href="detail.html" class="product-link"><img src="${p.image}" alt="${
       p.title
     }"></a>
-        <h5>${p.title}</h5>
-        <h6>$${p.price.toFixed(2)}</h6>
-        <p class="text-muted">${p.description.slice(0, 60)}…</p>
+        <h3>${p.title}</h5>
+        <h4>$${p.price.toFixed(2)}</h6>
+        
         <button class="btn btn-primary">Add To Cart</button>
       `;
 

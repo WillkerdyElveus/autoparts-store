@@ -3,10 +3,10 @@ import { fetchData,renderProducts } from "./fetchWrapper.js";
 export async function initCarousel() {
   // 1) Grab the empty indicators and inner containers
   const indicators = document.querySelector(
-    "#carouselExampleCaptions .carousel-indicators"
+    "#carouselCaptions .carousel-indicators"
   );
   const inner = document.querySelector(
-    "#carouselExampleCaptions .carousel-inner"
+    "#carouselCaptions .carousel-inner"
   );
 
   // 2) Fetch, say, the first 5 products
@@ -24,7 +24,7 @@ export async function initCarousel() {
     // Indicator button
     const btn = document.createElement("button");
     btn.type = "button";
-    btn.setAttribute("data-bs-target", "#carouselExampleCaptions");
+    btn.setAttribute("data-bs-target", "#carouselCaptions");
     btn.setAttribute("data-bs-slide-to", idx);
     if (idx === 0) btn.classList.add("active");
     btn.setAttribute("aria-label", `Slide ${idx + 1}`);
@@ -44,7 +44,7 @@ export async function initCarousel() {
     inner.appendChild(slide);
   });
 
-  new bootstrap.Carousel(document.getElementById("carouselExampleCaptions"), {
+  new bootstrap.Carousel(document.getElementById("carouselCaptions"), {
     interval: 3000,
     ride: "carousel",
   });
