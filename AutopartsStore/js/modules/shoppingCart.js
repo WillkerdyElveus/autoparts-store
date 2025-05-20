@@ -18,9 +18,16 @@ export function getCartItems() {
 //Add to Cart
 export function addToCart(product) {
   // Spread the product properties into a new object and add a default quantity of 1
+  //update quantity if there is already one item inside the cart
+  const existingProduct = cart.find(item => item.id === product.id);
+  if(existingProduct){
+    existingProduct.quantity++;
+  }else{
   cart.push({ ...product, quantity: 1 });
+  }
   // Persist the updated cart
   saveCart();
+  renderCart();
   // Log the updated cart for debugging
   console.log('Current Cart:', cart);
   // Give feedback
@@ -76,6 +83,19 @@ export function renderCart() {
     `;
     container.appendChild(itemDiv);
   });
+
+  // Add Summary data numbers 
+  const subtotal = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
+  //Add shipping cost
+  const shipping = subtotal > 0 ? 6.00 : 0;
+  //Add taxes
+  const tax = subtotal * 0.15;
+  const total = subtotal + shipping + tax;
+  //fetch the id to update each section
+  document.getElementById('summary-subtotal').textContent = `$${subtotal.toFixed(2)}`;
+  document.getElementById('summary-shipping').textContent = `$${shipping.toFixed(2)}`;
+  document.getElementById('summary-taxes').textContent = `$${tax.toFixed(2)}`;
+  document.getElementById('summary-total').textContent = `$${total.toFixed(2)}`;
 
   // Attach event listeners to creat "Remove" buttons when necessary
   container.querySelectorAll('.remove-btn').forEach(btn =>

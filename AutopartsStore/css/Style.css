@@ -143,24 +143,17 @@ margin-bottom: 0pt;
 }
 
 /* Product styling  */
-.product-list{
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 20px;
-    padding: 40px;
-    background-color: var(--bg-color);
- } 
+.product-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px,1fr));
+  gap: 1.5rem;
+  grid-auto-rows: 1fr;      /* every row same height */
+}
 
-/* Background */
-.product-card{
-    height: 100%;
-    border: 1px solid #000000;
-    border-radius: 10px;
-    padding: 15px;
-    text-align: center;
-    background-color: var(--bg-color);
-    color: var(--text-color);
-    transition: box-shadow 0.3s ease;
+.product-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;             /* fill grid cell */
 }
 
 /* Hover effect for the products */
@@ -187,6 +180,7 @@ margin-bottom: 0pt;
   }
   
   .product-card button {
+    margin-top: auto;  
     background-color: #007bff;
     color: rgb(255, 255, 255);
     padding: 10px 14px;
@@ -359,6 +353,9 @@ padding: 20px;
   margin-left: 0px;
   margin-right: 0px;
 }
+
+/* changing the carousel size so picture can fit */
+
 
 
 
