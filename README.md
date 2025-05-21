@@ -38,5 +38,5 @@ AutoParts Store is a modern e-commerce platform specializing in automotive parts
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/yourusername/autoparts-store.git
+git clone https://github.com/WillkerdyElveus/autoparts-store.git
 cd autoparts-store
