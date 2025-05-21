@@ -14,7 +14,7 @@ export async function fetchReviews() {
     const reviewStats = document.getElementById('reviewStats');
     
     // API endpoint - Using a mock API for demonstration
-    const API_URL = 'https://api.mocki.io/v2/2a5a6a0a/reviews';
+    const API_URL = 'https://api.restful-api.dev/objects';
     
     // Show loading spinner
     loadingSpinner.style.display = 'block';
