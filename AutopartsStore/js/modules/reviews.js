@@ -5,7 +5,7 @@ let currentPage = 1;
 const reviewsPerPage = 5;
 let allReviews = [];
 
-export function fetchReviews() {
+export async function fetchReviews() {
     const reviewsContainer = document.getElementById('reviewsContainer');
     const loadingSpinner = document.getElementById('loadingSpinner');
     const errorMessage = document.getElementById('errorMessage');
