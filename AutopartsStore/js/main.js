@@ -6,6 +6,7 @@ import { setupFormValidation } from "./modules/formValidation.js";
 import { setupSearch } from "./modules/search.js";
 import { loadProductDetails  } from './modules/products.js';
 import {initCarousel} from './modules/home.js';
+import { fetchReviews, setupReviewFilters } from './modules/reviews.js';
 // Arrays to hold the full list of products and the current filtered/sorted view
 let products = [];    // Will store all fetched products
 let filtered = [];    // Will store products after sorting/filtering
@@ -56,7 +57,11 @@ function initApp() {
       case "search":
         setupSearch();
         break;
-  }
+      case "reviews":
+        fetchReviews();
+        setupReviewFilters();
+        break;
+  }     
 }
 
 
