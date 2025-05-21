@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Reviews | AutoParts Store</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/AutopartsStore/css/Style.css">
+    <link rel="stylesheet" href="css/Reviews.css">
+</head>
+<body>
+
+    <!-- Theme Toggle -->
+    <input type="checkbox" id="theme-toggle" hidden />
+    <label for="theme-toggle" class="theme-switch" aria-label="Toggle dark mode">
+        <span class="sun">☀️</span>
+        <span class="moon">🌙</span>
+    </label>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="logo">
+            <a href="Home.html"><img src="images/b9538802-0031-4cf1-9e27-7aed700611a2.png" alt="Store Logo"></a>
+        </div>
+        <div class="search-bar">
+            <input type="text" placeholder="Search...">
+            <button>Search</button>
+        </div>
+        
+        <div class="nav-links">
+            <a href="Product-Listing.html">
+                <i class="fas fa-box-open"></i>
+            </a>
+            <a href="Shopping-Cart.html">
+                <i class="fas fa-shopping-cart"></i>
+            </a>
+            <a href="Account.html">
+                <i class="fas fa-user"></i>
+            </a>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="page-header">
+        <h1>Customer Reviews</h1>
+        <p class="lead">What our customers say about our products</p>
+    </header>
+
+    <!-- Breadcrumb Navigation -->
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="Home.html">Home</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Customer Reviews</li>
+        </ol>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="container my-5">
+        <div class="api-info">
+            <h3><i class="fas fa-database"></i> Reviews Data</h3>
+            <p>This page displays customer reviews fetched from a REST API</p>
+            <small>Data updates every 15 minutes. Last updated: <span id="last-updated">Loading...</span></small>
+        </div>
+
+        <!-- Review Statistics -->
+        <div class="review-stats" id="reviewStats" style="display: none;">
+            <div class="rating-summary">
+                <div class="average-rating" id="averageRating">4.8</div>
+                <div>
+                    <div class="rating-stars" id="ratingStars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <div>Based on <span id="totalReviews">0</span> reviews</div>
+                </div>
+            </div>
+            <div class="rating-distribution">
+                <div class="rating-bar">
+                    <div class="rating-label">5 stars</div>
+                    <div class="progress">
+                        <div class="progress-bar bg-success" id="fiveStarBar" role="progressbar" style="width: 75%"></div>
+                    </div>
+                    <div class="rating-count" id="fiveStarCount">0</div>
+                </div>
+                <div class="rating-bar">
+                    <div class="rating-label">4 stars</div>
+                    <div class="progress">
+                        <div class="progress-bar bg-info" id="fourStarBar" role="progressbar" style="width: 15%"></div>
+                    </div>
+                    <div class="rating-count" id="fourStarCount">0</div>
+                </div>
+                <div class="rating-bar">
+                    <div class="rating-label">3 stars</div>
+                    <div class="progress">
+                        <div class="progress-bar" id="threeStarBar" role="progressbar" style="width: 5%"></div>
+                    </div>
+                    <div class="rating-count" id="threeStarCount">0</div>
+                </div>
+                <div class="rating-bar">
+                    <div class="rating-label">2 stars</div>
+                    <div class="progress">
+                        <div class="progress-bar bg-warning" id="twoStarBar" role="progressbar" style="width: 3%"></div>
+                    </div>
+                    <div class="rating-count" id="twoStarCount">0</div>
+                </div>
+                <div class="rating-bar">
+                    <div class="rating-label">1 star</div>
+                    <div class="progress">
+                        <div class="progress-bar bg-danger" id="oneStarBar" role="progressbar" style="width: 2%"></div>
+                    </div>
+                    <div class="rating-count" id="oneStarCount">0</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Filter Controls -->
+        <div class="filter-controls">
+            <div class="row">
+                <div class="col-md-4">
+                    <label for="rating-filter" class="form-label">Filter by Rating</label>
+                    <select class="form-select" id="rating-filter">
+                        <option value="0">All Ratings</option>
+                        <option value="5">5 Stars</option>
+                        <option value="4">4 Stars</option>
+                        <option value="3">3 Stars</option>
+                        <option value="2">2 Stars</option>
+                        <option value="1">1 Star</option>
+                    </select>
+                </div>
+                <div class="col-md-4">
+                    <label for="date-filter" class="form-label">Sort By</label>
+                    <select class="form-select" id="date-filter">
+                        <option value="newest">Newest First</option>
+                        <option value="oldest">Oldest First</option>
+                        <option value="highest">Highest Rated</option>
+                        <option value="lowest">Lowest Rated</option>
+                    </select>
+                </div>
+                <div class="col-md-4">
+                    <label for="search-reviews" class="form-label">Search Reviews</label>
+                    <div class="input-group">
+                        <input type="text" class="form-control" id="search-reviews" placeholder="Search text...">
+                        <button class="btn btn-outline-secondary" type="button" id="search-button">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Loading Spinner -->
+        <div class="loading-spinner" id="loadingSpinner">
+            <div class="spinner-border text-primary" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+            <p>Loading customer reviews...</p>
+        </div>
+
+        <!-- Error Message Container -->
+        <div class="error-message" id="errorMessage" style="display: none;"></div>
+
+        <!-- Reviews Container -->
+        <div class="reviews-container" id="reviewsContainer">
+            <!-- Reviews will be inserted here dynamically -->
+        </div>
+
+        <!-- Pagination -->
+        <nav aria-label="Reviews pagination" class="mt-4">
+            <ul class="pagination justify-content-center" id="pagination">
+                <!-- Pagination will be inserted here dynamically -->
+            </ul>
+        </nav>
+
+        <!-- API Status -->
+        <div class="mt-4 text-center text-muted">
+            <small>API Status: <span id="api-status">Checking...</span></small>
+        </div>
+    </main>
+
+    <!-- Footer section -->
+    <footer class="site-footer">
+        <div class="footer-container">
+            <!-- Footer content same as previous pages -->
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="js/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/reviews.js"></script>
+</body>
+</html>

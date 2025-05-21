@@ -1,0 +1,149 @@
+.reviews-container {
+    margin-top: 30px;
+}
+
+.review-card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.review-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.review-user {
+    display: flex;
+    align-items: center;
+}
+
+.user-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 15px;
+    background-color: #f0f0f0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    color: #555;
+}
+
+.review-meta {
+    display: flex;
+    flex-direction: column;
+}
+
+.review-author {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.review-date {
+    color: #777;
+    font-size: 0.9rem;
+}
+
+.review-rating {
+    color: #ffc107;
+    font-size: 1.2rem;
+}
+
+.review-product {
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid #eee;
+    font-size: 0.9rem;
+}
+
+.product-link {
+    color: #0066cc;
+    text-decoration: none;
+}
+
+.product-link:hover {
+    text-decoration: underline;
+}
+
+.loading-spinner {
+    display: none;
+    text-align: center;
+    margin: 30px 0;
+}
+
+.error-message {
+    color: #e63946;
+    text-align: center;
+    padding: 20px;
+    background-color: #ffecec;
+    border-radius: 8px;
+    margin: 20px 0;
+}
+
+.filter-controls {
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 30px;
+}
+
+.review-stats {
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.rating-summary {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.average-rating {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-right: 20px;
+}
+
+.rating-stars {
+    color: #ffc107;
+    font-size: 1.5rem;
+}
+
+.rating-distribution {
+    width: 100%;
+}
+
+.rating-bar {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.rating-label {
+    width: 80px;
+}
+
+.progress {
+    flex-grow: 1;
+    height: 10px;
+    margin: 0 10px;
+}
+
+.rating-count {
+    width: 50px;
+    text-align: right;
+}
+
+.no-reviews {
+    text-align: center;
+    padding: 40px;
+    color: #777;
+}
