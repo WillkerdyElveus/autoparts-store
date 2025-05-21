@@ -34,9 +34,7 @@ export function renderProducts(list) {
 
     // Populate card inner HTML with product image, title, price, description, and button
     card.innerHTML = `
-      <a href="detail.html" class="product-link"><img src="${p.image}" alt="${
-      p.title
-    }"></a>
+      <a href="detail.html" id=${p.id} class="product-link"><img src="${p.image}" alt="${p.title}"></a>
         <h3>${p.title}</h5>
         <h4>$${p.price.toFixed(2)}</h6>
         
