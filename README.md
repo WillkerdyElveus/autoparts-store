@@ -4,11 +4,8 @@
 - [Project Overview](#project-overview)
 - [Features](#features)
 - [Installation](#installation)
-- [File Structure](#file-structure)
-- [Dependencies](#dependencies)
-- [API Endpoints](#api-endpoints)
-- [Browser Support](#browser-support)
-- [License](#license)
+
+
 
 ## Project Overview
 
