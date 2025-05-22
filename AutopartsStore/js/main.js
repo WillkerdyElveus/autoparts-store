@@ -26,40 +26,43 @@ document.addEventListener('DOMContentLoaded', () => {
 
 });
 
+//Initializes the application based on the current page
 function initApp() {
-  console.log("Initializing the Application"); 
+  console.log("Initializing the Application"); // Log initialization
   
+  // Get current page from data attribute
   const page = document.querySelector("[data-page]")?.dataset.page;
   if (!page) return;
 
+  // Initialize page-specific functionality
   switch(page) {
     case "map":
       initLeafletMap();
       break;
     case "listing":
       initListingApp();
-      setupSearch();
+      setupSearch(); // Enable search functionality
       break;
       case "home":
         initCarousel();
         fetchProducts();
-        setupSearch();
+        setupSearch(); // Enable search functionality
       break;
     case "account":
       setupFormValidation();
       break;
     case "cart":
-      renderCart();
+      renderCart(); // Display shopping cart contents
       break;
        case "detail":
          loadProductDetails();
          break;
       case "search":
-        setupSearch();
+        setupSearch(); // Set up search page functionality
         break;
       case "reviews":
         fetchReviews();
-        setupReviewFilters();
+        setupReviewFilters();  // Enable review filtering
         break;
   }     
 }
