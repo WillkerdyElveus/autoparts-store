@@ -176,45 +176,6 @@ export async function fetchReviews() {
             reviewsContainer.appendChild(reviewCard);
         });
         
-        renderPagination(totalPages, page);
-    }
-    
-    function renderPagination(totalPages, currentPage) {
-        const pagination = document.getElementById('pagination');
-        pagination.innerHTML = '';
-        
-        if (totalPages <= 1) return;
-        
-        pagination.innerHTML += `
-            <li class="page-item ${currentPage === 1 ? 'disabled' : ''}">
-                <a class="page-link" href="#" data-page="${currentPage - 1}">Previous</a>
-            </li>
-        `;
-        
-        for (let i = 1; i <= totalPages; i++) {
-            pagination.innerHTML += `
-                <li class="page-item ${i === currentPage ? 'active' : ''}">
-                    <a class="page-link" href="#" data-page="${i}">${i}</a>
-                </li>
-            `;
-        }
-        
-        pagination.innerHTML += `
-            <li class="page-item ${currentPage === totalPages ? 'disabled' : ''}">
-                <a class="page-link" href="#" data-page="${currentPage + 1}">Next</a>
-            </li>
-        `;
-        
-        document.querySelectorAll('.page-link').forEach(link => {
-            link.addEventListener('click', function(e) {
-                e.preventDefault();
-                const page = parseInt(this.getAttribute('data-page'));
-                if (page !== currentPage) {
-                    currentPage = page;
-                    applyFilters();
-                }
-            });
-        });
     }
 }
 
