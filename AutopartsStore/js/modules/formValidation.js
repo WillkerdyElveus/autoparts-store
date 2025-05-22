@@ -1,11 +1,13 @@
+// Main function: Sets up form validation on submit
 export function setupFormValidation() {
   const form = document.getElementById("registrationForm");
   if (!form) return;
 
   form.addEventListener("submit", (e) => {
+    // Stop default form submission
     e.preventDefault();
-    if (validateForm()) {
-      saveAccount();
+    if (validateForm()) { // If all validations pass
+      saveAccount(); // Save data to localStorage
       // Give feedback
       const msgEl = document.getElementById("accountFeedbackMessage");
       msgEl.textContent = `Account Created Successfully`;
@@ -26,6 +28,7 @@ export function setupFormValidation() {
     document.getElementById('phone').addEventListener(validatePhoneNumber);*/
 }
 
+// Checks ALL form fields and returns true only if all are valid
 function validateForm() {
   return (
     validateFirstName() &&
@@ -38,6 +41,7 @@ function validateForm() {
   );
 }
 
+// Validates first name (min 2 letters, alphabets only)
 function validateFirstName() {
   const firstName = document.getElementById("firstName");
   const re = /^[a-zA-Z]{2,}$/;
@@ -49,6 +53,7 @@ function validateFirstName() {
   return true;
 }
 
+// Validates last name (same rules as first name)
 function validateLastName() {
   const lastName = document.getElementById("lastName");
   const re = /^[a-zA-Z]{2,}$/;
@@ -60,6 +65,7 @@ function validateLastName() {
   return true;
 }
 
+// Validates phone number (supports format 123-456-7890)
 function validatePhoneNumber() {
   const phone = document.getElementById("phone");
   const regExPhone =
@@ -72,6 +78,7 @@ function validatePhoneNumber() {
   return true;
 }
 
+// Validates email (must match user@domain.com format)
 function validateEmail() {
   const email = document.getElementById("email");
   const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -83,6 +90,7 @@ function validateEmail() {
   return true;
 }
 
+// Validates password (8+ chars, 1 uppercase, 1 lowercase, 1 number)
 function validatePassword() {
   const password = document.getElementById("password");
   // At least 8 chars, 1 uppercase, 1 lowercase, 1 number
@@ -97,6 +105,7 @@ function validatePassword() {
   return true;
 }
 
+// Checks if confirmPassword matches password
 function validateConfirmPassword() {
   const password = document.getElementById("password");
   const confirmPassword = document.getElementById("confirmPassword");
@@ -108,6 +117,7 @@ function validateConfirmPassword() {
   return true;
 }
 
+// Validates Canadian postal code (A1A 1A1 format)
 function validatePostalCode() {
   const postalCode = document.getElementById("postalCode");
   const re = /^[A-Za-z]\d[A-Za-z][ -]?\d[A-Za-z]\d$/;
@@ -119,6 +129,7 @@ function validatePostalCode() {
   return true;
 }
 
+// Saves validated form data to localStorage as JSON
 function saveAccount() {
   const formData = {
     firstName: document.getElementById("firstName").value,

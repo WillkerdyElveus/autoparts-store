@@ -5,7 +5,9 @@ let currentPage = 1;
 const reviewsPerPage = 5;
 let allReviews = [];
 
+// fethced reviews from API
 export async function fetchReviews() {
+    // Get DOM elements
     const reviewsContainer = document.getElementById('reviewsContainer');
     const loadingSpinner = document.getElementById('loadingSpinner');
     const errorMessage = document.getElementById('errorMessage');
@@ -19,7 +21,7 @@ export async function fetchReviews() {
     // Show loading spinner
     loadingSpinner.style.display = 'block';
     
-    // Fetch data from API
+    // Fetch data from API with error handling
     fetch(API_URL)
         .then(response => {
             if (!response.ok) {
@@ -40,12 +42,14 @@ export async function fetchReviews() {
                 return;
             }
             
+            // Store and process reviews
             allReviews = data;
             calculateReviewStats(allReviews);
             reviewStats.style.display = 'block';
             renderReviews(allReviews, currentPage);
         })
         .catch(error => {
+            // Handle API errors
             loadingSpinner.style.display = 'none';
             apiStatus.textContent = 'Offline';
             apiStatus.style.color = 'red';
@@ -53,19 +57,23 @@ export async function fetchReviews() {
             console.error('Error fetching reviews:', error);
         });
     
+        // Shows error message and clears reviews
     function showError(message) {
         errorMessage.textContent = message;
         errorMessage.style.display = 'block';
         reviewsContainer.innerHTML = '';
     }
     
+    // Calculates review statistics (average, star distribution)
     function calculateReviewStats(reviews) {
         const total = reviews.length;
         document.getElementById('totalReviews').textContent = total;
         
+        // Initialize rating counters
         const ratingCounts = [0, 0, 0, 0, 0];
         let totalStars = 0;
         
+        // Count each star rating
         reviews.forEach(review => {
             const rating = Math.floor(review.rating);
             if (rating >= 1 && rating <= 5) {
@@ -74,15 +82,18 @@ export async function fetchReviews() {
             }
         });
         
+        // Calculate and display average
         const average = totalStars / total;
         document.getElementById('averageRating').textContent = average.toFixed(1);
         
+        // Render star visualization
         const starsContainer = document.getElementById('ratingStars');
         starsContainer.innerHTML = '';
         
         const fullStars = Math.floor(average);
         const hasHalfStar = average % 1 >= 0.5;
         
+        // Create star icons
         for (let i = 0; i < 5; i++) {
             if (i < fullStars) {
                 starsContainer.innerHTML += '<i class="fas fa-star"></i>';
@@ -93,12 +104,14 @@ export async function fetchReviews() {
             }
         }
         
+        // Update star count displays
         document.getElementById('fiveStarCount').textContent = ratingCounts[4];
         document.getElementById('fourStarCount').textContent = ratingCounts[3];
         document.getElementById('threeStarCount').textContent = ratingCounts[2];
         document.getElementById('twoStarCount').textContent = ratingCounts[1];
         document.getElementById('oneStarCount').textContent = ratingCounts[0];
         
+        // Update rating bar widths
         document.getElementById('fiveStarBar').style.width = `${(ratingCounts[4] / total) * 100}%`;
         document.getElementById('fourStarBar').style.width = `${(ratingCounts[3] / total) * 100}%`;
         document.getElementById('threeStarBar').style.width = `${(ratingCounts[2] / total) * 100}%`;
@@ -106,25 +119,30 @@ export async function fetchReviews() {
         document.getElementById('oneStarBar').style.width = `${(ratingCounts[0] / total) * 100}%`;
     }
     
+    // Renders reviews with pagination
     function renderReviews(reviews, page) {
         const reviewsContainer = document.getElementById('reviewsContainer');
         reviewsContainer.innerHTML = '';
         
+        // Handle empty state
         if (!reviews || reviews.length === 0) {
             reviewsContainer.innerHTML = '<div class="no-reviews"><i class="far fa-comment-dots fa-3x mb-3"></i><p>No reviews found matching your criteria.</p></div>';
             document.getElementById('pagination').innerHTML = '';
             return;
         }
         
+        // Pagination
         const totalPages = Math.ceil(reviews.length / reviewsPerPage);
         const startIndex = (page - 1) * reviewsPerPage;
         const endIndex = Math.min(startIndex + reviewsPerPage, reviews.length);
         const paginatedReviews = reviews.slice(startIndex, endIndex);
         
+        // Create review cards
         paginatedReviews.forEach(review => {
             const reviewCard = document.createElement('div');
             reviewCard.className = 'review-card';
             
+            // review date
             const reviewDate = new Date(review.date);
             const formattedDate = reviewDate.toLocaleDateString('en-US', {
                 year: 'numeric',
@@ -132,6 +150,7 @@ export async function fetchReviews() {
                 day: 'numeric'
             });
             
+            // Create star rating display
             let starsHtml = '';
             const fullStars = Math.floor(review.rating);
             const hasHalfStar = review.rating % 1 >= 0.5;
@@ -146,6 +165,7 @@ export async function fetchReviews() {
                 }
             }
             
+            // Build review card with HTML
             reviewCard.innerHTML = `
                 <div class="review-header">
                     <div class="review-user">
@@ -179,7 +199,9 @@ export async function fetchReviews() {
     }
 }
 
+// Sets up review filtering functionality
 export function setupReviewFilters() {
+    // Get filter elements
     const ratingFilter = document.getElementById('rating-filter');
     const dateFilter = document.getElementById('date-filter');
     const searchInput = document.getElementById('search-reviews');
@@ -197,6 +219,7 @@ export function setupReviewFilters() {
             );
         }
         
+        // Search filter
         const searchText = searchInput.value.toLowerCase();
         if (searchText) {
             filteredReviews = filteredReviews.filter(review => 
@@ -206,6 +229,7 @@ export function setupReviewFilters() {
             );
         }
         
+        // Sort filter
         switch(dateFilter.value) {
             case 'newest':
                 filteredReviews.sort((a, b) => new Date(b.date) - new Date(a.date));
@@ -221,6 +245,7 @@ export function setupReviewFilters() {
                 break;
         }
         
+        // Apply changes with slight delay for smoothness
         setTimeout(() => {
             calculateReviewStats(filteredReviews);
             renderReviews(filteredReviews, 1);
@@ -229,6 +254,7 @@ export function setupReviewFilters() {
         }, 300);
     }
     
+    // Event listeners for filters
     ratingFilter.addEventListener('change', applyFilters);
     dateFilter.addEventListener('change', applyFilters);
     searchButton.addEventListener('click', applyFilters);
