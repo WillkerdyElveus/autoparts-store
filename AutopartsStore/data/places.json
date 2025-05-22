@@ -10,13 +10,13 @@
         "id": 2,
         "name": "SAAQ",
         "description": "Come register your car",
-        "markerIcon": ""
+        "markerIcon": "trafficlight.png"
       },
       {
         "id": 3,
         "name": "Canadian Tire",
         "description": "Buy all your parts here",
-        "markerIcon": ""
+        "markerIcon": "tires.png"
       },
       {
         "id": 4,
