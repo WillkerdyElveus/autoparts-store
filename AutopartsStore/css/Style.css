@@ -1,33 +1,32 @@
 /*theme toggle buttons*/
 :root {
   /* Light Theme Defaults */
-  --bg-color:        #f7f9fc;   /* Very light gray-blue */
-  --text-color:      #2b2d42;   /* Dark slate-blue */
-  --accent-color:    #0051ff;   /* Warm terracotta */
-  --button-bg:       #0051ff;   /* Match accent for buttons */
-  --card-bg:         #ffffff;   /* White cards */
-  --footer-bg:       #edf2f4;   /* Soft pale gray */
-  --footer-text:     #2b2d42;   /* Dark slate-blue */
+  --bg-color:        #f7f9fc;   
+  --text-color:      #2b2d42;   
+  --accent-color:    #0051ff;  
+  --button-bg:       #0051ff;   
+  --card-bg:         #ffffff;   
+  --footer-bg:       #edf2f4;   
+  --footer-text:     #2b2d42;   
   --footer-link:     var(--accent-color);
-  --footer-link-hover:#001d6b;  /* Slightly darker terracotta */
-  --card-border:     #ccc5b9;   /* Light camel */
-
+  --footer-link-hover:#001d6b;  
+  --card-border:     #ccc5b9;   
   --account-margin:  0rem;
   --account-padding: 0rem;
 }
 
 :root.dark-mode {
   /* Dark Theme Overrides */
-  --bg-color:        #2b2d42;   /* Dark slate-blue */
-  --text-color:      #edf2f4;   /* Pale gray */
-  --accent-color:    #e9c46a;   /* Soft saffron */
+  --bg-color:        #2b2d42;   
+  --text-color:      #edf2f4;   
+  --accent-color:    #e9c46a;   
   --button-bg:       #e9c46a;
-  --card-bg:         #3d3f51;   /* Slightly lighter slate */
-  --footer-bg:       #1f1f2e;   /* Near black slate */
+  --card-bg:         #3d3f51;   
+  --footer-bg:       #1f1f2e;   
   --footer-text:     #edf2f4;
   --footer-link:     var(--accent-color);
   --footer-link-hover:#d4aa4c;
-  --card-border:     #4a4c63;   /* Muted slate */
+  --card-border:     #4a4c63;   
 }
 
 body {
@@ -70,6 +69,7 @@ body {
 #theme-toggle:checked + .theme-switch .moon {
     display: inline;
 }
+
 /* Styling for the heading  */
 .page-header{
     padding: 40px 20px 10px;
@@ -95,6 +95,7 @@ body {
 .carousel-control-next-icon {
     filter: invert(0%) sepia(100%) saturate(1000%) hue-rotate(400deg);
 }
+
 /* Nav bar styling  */
 .navbar {
     display: flex;
@@ -146,6 +147,7 @@ body {
     padding: 20px;
     margin-bottom: 0;
 }
+
 /* Product styling  */
 .product-list {
     display: grid;
@@ -166,6 +168,7 @@ body {
     padding: 1rem;
     transition: box-shadow 0.3s ease;
 }
+
 /* Hover effect for the products */
 .product-card:hover {
     box-shadow: 0 4px 12px rgba(0,0,0,0.15);
@@ -203,32 +206,8 @@ body {
     background-color: var(--footer-link-hover);
 }
 
-.filtering{
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    gap: 20px;
-    padding: 20px 40px 0;
-    flex-wrap: wrap;
-    background-color: var(--bg-color);
-}
-
-.filtering label{
-    font-weight: bold;
-    margin-right: 8px;
-    color: var(--text-color);
-}
-
-.filtering select{
-    padding: 6px 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    background-color: var(--bg-color);
-    color: var(--text-color);
-}
-
-/* making the page link work with theme toggle  */
-.pagination {
+/* making the page link work with theme toggle
+     .pagination {
     background-color: var(--bg-color);
 }
 
@@ -247,7 +226,8 @@ ul.pagination {
 .page-link:hover {
     background-color: var(--footer-link-hover);
     color: #fff;
-}
+} */
+
 /* All footer buttons and information*/
 .site-footer {
     background-color: var(--footer-bg);
@@ -343,74 +323,3 @@ ul.pagination {
     margin-left: 0;
     margin-right: 0;
 }
-
-/* Map list Styling  */
-/* Container  */
-.map-container {
-  display: flex;
-  height: calc(100vh - 120px);
-  margin: 0;
-  padding: 0;
-}
-
-/* 2) Sidebar styling */
-.map-sidebar {
-  width: 280px;
-  background: #fff;
-  border-right: 1px solid #e0e0e0;
-  display: flex;
-  flex-direction: column;
-  padding: 1rem;
-  box-shadow: 2px 0 8px rgba(0,0,0,0.05);
-}
-.map-sidebar input {
-  border-radius: 24px;
-  padding: 0.6rem 1rem;
-  border: 1px solid #ccc;
-  transition: border-color 0.2s;
-}
-.map-sidebar input:focus {
-  border-color: var(--accent-color);
-  outline: none;
-  box-shadow: 0 0 0 3px rgba(74,144,226,0.2);
-}
-.map-sidebar .list-group {
-  flex: 1;
-  overflow-y: auto;
-  margin-top: 0.5rem;
-}
-.map-sidebar .list-group-item {
-  border: none;
-  border-bottom: 1px solid #f0f0f0;
-  padding: 0.6rem 0.8rem;
-  transition: background 0.2s, color 0.2s;
-}
-.map-sidebar .list-group-item:hover {
-  background: var(--accent-color);
-  color: white;
-}
-
-/* Map area styling */
-.map-view {
-  flex: 1;
-}
-
-#leafletMap {
-  width: 100%;
-  height: 100%;
-}
-
-/* collapse sidebar above map */
-@media (max-width: 768px) {
-  .map-container { flex-direction: column; }
-  .map-sidebar {
-    width: 100%;
-    border-right: none;
-    border-bottom: 1px solid #e0e0e0;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-  }
-  .map-view { height: calc(100vh - 200px); }
-}
-
-.list-item { cursor: pointer; }
-.list-item:hover { background-color: rgba(0,0,0,0.05); }

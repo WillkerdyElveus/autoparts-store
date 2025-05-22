@@ -47,17 +47,75 @@
 
 <!-- breadcrumb/ directory  -->
     <nav aria-label="breadcrumb">
-      <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="Home.html">Home</a></li>
-        <li class="breadcrumb-item active" aria-current="page">All Products</li>
-        <li class="breadcrumb-item"></li>
+      <ol  id="breadcrumb" class="breadcrumb">
       </ol>
     </nav>
 
-    <div id="productDetail" class="row">
-      <!-- Dynamic Products will update here -->
+    <div class="container product-container my-5">
+      <div class="row">
+        <!-- Image Carousel -->
+         <div class="col-md-6 product-images">
+          <!-- Create product info -->
+         </div>
+         <!-- Text info -->
+         <div class="col-md-6">
+          <h2 class="product-title"></h2>
+          <p class="product-price"></p>
+          <p class="product-description"></p>
+          <!-- Button to add to cart -->
+           <button class="btn btn-primary add-to-cart">Add To Cart</button>
+         </div>
+      </div>
     </div>
 
+     <!-- Footer section  -->
+  <footer class="site-footer">
+        <div class="footer-container">
+  
+          <!-- Customer Service -->
+          <div class="footer-section">
+            <h3>Customer Service</h3>
+            <ul>
+              <li><a href="contact.html">FAQ</a></li>
+              <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+          </div>
+      
+          <!-- Account Section -->
+          <div class="footer-section">
+            <h3>Your Account</h3>
+            <ul>
+              <li><a href="Account.html">Account information</a></li>
+              <li><a href="Shopping-Cart.html">View Cart</a></li>
+            </ul>
+          </div>
+      
+          <!-- Extra Resources -->
+          <div class="footer-section">
+            <h3>Shop</h3>
+            <ul>
+              <li><a href="#">Shop by Category</a></li>
+              <li><a href="#">Shop by Brand</a></li>
+              <li><a href="#">Discount Items</a></li>
+            </ul>
+          </div>
+      
+          <!-- Social Media -->
+          <div class="footer-section">
+            <h3>Follow Us</h3>
+            <div class="social-icons">
+              <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+              <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+              <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+              <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+            </div>
+          </div>
+        </div>
+      
+        <div class="footer-bottom">
+          <p>&copy; 2025 Autoparts Store. All rights reserved.</p>
+        </div>
+  </footer>
 
 
     <!-- Cart Feedback Modal -->

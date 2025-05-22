@@ -1,4 +1,6 @@
 import { fetchData } from './fetchWrapper.js';
+import { addToCart } from './shoppingCart.js';
+
 
 export async function loadProductDetails() {
   let products = [];  // Initialize products array to store fetched data
@@ -23,19 +25,39 @@ export async function loadProductDetails() {
     document.querySelector('.product-price').textContent = `$${product.price.toFixed(2)}`;
     document.querySelector('.product-description').textContent = product.description;
     
+    //Dynamic breadCrumb
+    const bc = document.getElementById('breadcrumb');
+    bc.innerHTML = `
+  <li class="breadcrumb-item">
+    <a href="index.html">Home</a>
+  </li>
+  <li class="breadcrumb-item">
+    <a href="product-listing.html">All Products</a>
+  </li>
+  <li class="breadcrumb-item active" aria-current="page">
+    ${product.title}
+  </li>
+`;
     const imageContainer = document.querySelector('.product-images');
-    imageContainer.innerHTML = product.images.map((img, i) => `
+// verify if there is an image array
+    const pics = Array.isArray(product.iamges) ? product.images : [ product.image];
+    imageContainer.innerHTML = pics.map((src, i) => `
       <div class="carousel-item ${i === 0 ? 'active' : ''}">
-        <img src="${img}" class="d-block w-100" alt="${product.title}">
+        <img src="${src}" class="d-block w-100" alt="${product.title}">
       </div>
     `).join('');
-    
-    document.querySelector('.add-to-cart').dataset.productId = product.id;
+    const addbtn = document.querySelector('.add-to-cart');
+    addbtn.dataset.productId = product.id;
+
+    addbtn.addEventListener('click', () =>{
+      addToCart(product)
+    });
+
   } catch (error) {
     console.error('Error loading product details:', error);
     document.querySelector('.product-container').innerHTML = `
       <div class="alert alert-danger">
-        Product not found. <a href="products.html">Back to products</a>
+        Product not found. <a href="Product-Listing.html">Back to products</a>
       </div>
     `;
   }

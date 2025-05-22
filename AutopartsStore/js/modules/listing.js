@@ -37,6 +37,15 @@ export async function fetchProducts() {
     
     filtered = [...products];
     renderProducts(filtered);
+
+    document.querySelectorAll('.product-link').forEach(link => {
+      link.addEventListener('click', () => {
+        // assuming <a class="card-link" data-id="...">
+        sessionStorage.setItem('selectedProduct', link.dataset.id);
+        // navigation will happen via the href on the <a>
+      });
+    });
+
   } catch (err) {
     console.error('Error fetching products:', err);
     document.querySelector('.product-list').innerHTML = `

@@ -1,13 +1,12 @@
 // Import utility functions for fetching data and managing the cart
 import { initLeafletMap } from './modules/map.js';
 import { initCart, renderCart } from './modules/shoppingCart.js';
-import { fetchProducts, setupSort } from "./modules/listing.js";
+import { initListingApp, fetchProducts, setupSort } from "./modules/listing.js";
 import { setupFormValidation } from "./modules/formValidation.js";
 import { setupSearch } from "./modules/search.js";
 import { loadProductDetails  } from './modules/products.js';
 import {initCarousel} from './modules/home.js';
 import { fetchReviews, setupReviewFilters } from './modules/reviews.js';
-import { loadProducts } from './modules/details.js';
 
 // Arrays to hold the full list of products and the current filtered/sorted view
 let products = [];    // Will store all fetched products
@@ -38,8 +37,7 @@ function initApp() {
       initLeafletMap();
       break;
     case "listing":
-      fetchProducts();
-      setupSort();
+      initListingApp();
       setupSearch();
       break;
       case "home":
@@ -63,9 +61,6 @@ function initApp() {
         fetchReviews();
         setupReviewFilters();
         break;
-        case "detail":
-          loadProducts();
-          break;
   }     
 }
 

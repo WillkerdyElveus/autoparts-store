@@ -34,9 +34,9 @@ export function renderProducts(list) {
 
     // Populate card inner HTML with product image, title, price, description, and button
     card.innerHTML = `
-      <a href="detail.html" id=${p.id} class="product-link"><img src="${p.image}" alt="${p.title}"></a>
-        <h3>${p.title}</h5>
-        <h4>$${p.price.toFixed(2)}</h6>
+      <a href="detail.html" data-id=${p.id} class="product-link"><img src="${p.image}" alt="${p.title}"></a>
+        <h3>${p.title}</h3>
+        <h4>$${p.price.toFixed(2)}</h4>
         
         <button class="btn btn-primary">Add To Cart</button>
       `;
@@ -45,8 +45,7 @@ export function renderProducts(list) {
     card.querySelector("button").addEventListener("click", () => addToCart(p));
 
     //Save the product ID to session storage when the card is clicked
-    const link = card.querySelector(".product-link");
-    link.addEventListener("click", (e) => {
+    card.querySelector(".product-link").addEventListener("click", (e) => {
       sessionStorage.setItem("selectedProduct", p.id);
     });
 

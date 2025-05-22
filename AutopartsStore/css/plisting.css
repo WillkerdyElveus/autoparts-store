@@ -1,0 +1,23 @@
+.filtering{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 20px;
+    padding: 20px 40px 0;
+    flex-wrap: wrap;
+    background-color: var(--bg-color);
+}
+
+.filtering label{
+    font-weight: bold;
+    margin-right: 8px;
+    color: var(--text-color);
+}
+
+.filtering select{
+    padding: 6px 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
