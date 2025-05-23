@@ -35,7 +35,7 @@ export async function initLeafletMap() {
 
 // Render all location markers based on categories and places
 function renderLocations(map, { categories, places }) {
-  // Create a mapping from category ID to Leaflet icon
+  // Create a link from category ID to Leaflet icon
   const categoryIcons = {};
   categories.forEach(category => {
     categoryIcons[category.id] = L.icon({

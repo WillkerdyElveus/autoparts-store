@@ -19,13 +19,6 @@ export function setupFormValidation() {
       form.reset();
     }
   });
-
-  //Maybe Added later
-  // Add real-time validation
-  /*document.getElementById('email').addEventListener('blur', validateEmail);
-    document.getElementById('password').addEventListener('input', validatePassword);
-    document.getElementById('confirmPassword').addEventListener('blur', validateConfirmPassword);
-    document.getElementById('phone').addEventListener(validatePhoneNumber);*/
 }
 
 // Checks ALL form fields and returns true only if all are valid

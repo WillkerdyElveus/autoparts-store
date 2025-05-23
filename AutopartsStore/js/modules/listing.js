@@ -4,7 +4,6 @@ import { fetchData,renderProducts } from './fetchWrapper.js';
 export let products = [];
 export let filtered = [];
 
-// TODO: doesnt work fix later so you can add to the main page only the listing app
 export async function initListingApp() {
   try {
     console.log("Initializing the Listing Application"); 
@@ -40,7 +39,6 @@ export async function fetchProducts() {
 
     document.querySelectorAll('.product-link').forEach(link => {
       link.addEventListener('click', () => {
-        // assuming <a class="card-link" data-id="...">
         sessionStorage.setItem('selectedProduct', link.dataset.id);
         // navigation will happen via the href on the <a>
       });

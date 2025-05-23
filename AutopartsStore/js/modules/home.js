@@ -9,7 +9,7 @@ export async function initCarousel() {
     "#carouselCaptions .carousel-inner"
   );
 
-  // 2) Fetch, say, the first 5 products
+  // 2) get the first 5 products
   let slides = [];
   try {
     const all = await fetchData("https://fakestoreapi.com/products?limit=5");

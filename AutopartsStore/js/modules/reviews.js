@@ -1,5 +1,3 @@
-// modules/reviews.js
-
 // Current page for pagination
 let currentPage = 1;
 const reviewsPerPage = 5;

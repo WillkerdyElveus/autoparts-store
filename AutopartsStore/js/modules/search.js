@@ -12,14 +12,14 @@ export function setupSearch() {
         const term = searchInput.value.trim().toLowerCase();
         
         if (term === '') {
-            // If search is empty, show all products
+            // If search input is empty, show all products
             renderProducts(filtered);
             return;
         }
 
         // Filter products based on search term
         const results = filtered.filter(product => {
-            // Check title, description, and category (if available)
+            // Check title, description, and category
             return (
                 product.title.toLowerCase().includes(term) ||
                 product.description.toLowerCase().includes(term) ||
@@ -30,7 +30,7 @@ export function setupSearch() {
         renderProducts(results);
     };
 
-    // Event listener for input field (live search as you type)
+    // Event listener for input field, live search as you type
     searchInput.addEventListener('input', performSearch);
 
     // Event listener for search button

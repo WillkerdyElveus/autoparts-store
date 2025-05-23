@@ -2,6 +2,7 @@ import { addToCart } from "./shoppingCart.js";
 
 export async function fetchData(resourceUri) {
   try {
+    // Grabs the url for the APi 
     const response = await fetch(resourceUri);
 
     if (!response.ok) {

@@ -25,12 +25,11 @@ export function addToCart(product) {
   }else{
   cart.push({ ...product, quantity: 1 });
   }
-  // Persist the updated cart
   saveCart();
   renderCart();
   // Log the updated cart for debugging
   console.log('Current Cart:', cart);
-  // Give feedback
+  // Give feedback with modal popup
   const msgEl = document.getElementById('cartFeedbackMessage');
   msgEl.textContent = `Added "${product.title}" to cart!`;
   // Show feedback modal
@@ -87,6 +86,7 @@ export function renderCart() {
   // Add Summary data numbers 
   const subtotal = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
   //Add shipping cost
+  //  If subtotal amount is bigger than 0 shipping is 6$ if not it is 0 
   const shipping = subtotal > 0 ? 6.00 : 0;
   //Add taxes
   const tax = subtotal * 0.15;
@@ -104,7 +104,7 @@ export function renderCart() {
       // Remove the clicked item from the cart array
       cart.splice(i, 1);
       saveCart();
-      renderCart(); // re-render to reflect the change
+      renderCart(); // re-render to show the change
     })
   );
 

@@ -46,7 +46,6 @@ export async function loadProductDetails() {
 `;
 // Handle product images
     const imageContainer = document.querySelector('.product-images');
-// verify if there is an image array
     const pics = Array.isArray(product.iamges) ? product.images : [ product.image];
     imageContainer.innerHTML = pics.map((src, i) => `
       <div class="carousel-item ${i === 0 ? 'active' : ''}">

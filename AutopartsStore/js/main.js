@@ -14,7 +14,7 @@ let filtered = [];    // Will store products after sorting/filtering
 
 document.addEventListener('DOMContentLoaded', () => {
   console.log("Main.js");
-  initApp();
+  initApp();// Initialize all the necessary functions for the website to run
   initCart();// Initialize the "Show Cart" link and renderCart()
   
    const toggle = document.getElementById('theme-toggle');
